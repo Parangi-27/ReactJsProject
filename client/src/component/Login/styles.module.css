@@ -24,7 +24,8 @@ body{
     color:white;
     padding: 4%;
     border-radius: 6%;
-    animation-duration: 10s;
+    transition: 0.5s;
+    /* animation-duration: 10s; */
     box-shadow: 10px 10px 11px #00dfc4;
    border-top: 0.25px groove #00dfc4; 
    border-left: 0.25px groove #00dfc4; 
@@ -70,8 +71,8 @@ transition: 0s;
 .inputBox span 
 { 
 position: relative;
-left: 4%;
-margin-left: -85%;
+left: 2%;
+margin-left: -92%;
 padding: 2%;
 pointer-events: none;
 font-size: 1em;

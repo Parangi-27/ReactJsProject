@@ -100,3 +100,8 @@ div.last{
    
     
 }
+.error_msg
+{
+    color:white;
+    font-size: large;
+}

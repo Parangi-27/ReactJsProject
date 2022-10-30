@@ -10,25 +10,51 @@ const SignUp = (props) => {
         name: "",
         email: "",
         password: "",
-        confirmkklllPassword:"",
+        confirmPassword:"",
         phoneNo:""
     });
-    const [error, setError] = useState(""); 
+    const [error, setError] = useState({
+		error1:"",
+		message :""
+	}); 
     const handleChange = ({ currentTarget: input }) => {
 		setData({ ...data, [input.name]: input.value });
 	};
-	const handleSubmit=(e)=>{
+	const handleSubmit= async (e)=>{
 		e.preventDefault();
+		const {name,email,password,confirmPassword,phoneNo}=data;
+       const res= await fetch("register",{
+		method:"POST",
+		headers:{
+			"Content-Type":"application/json"
+		},
+		body:JSON.stringify({
+			name,email,password,confirmPassword,phoneNo
+		})
+	  });
+	  const  t=await res.json();
+	  if(t)
+	  {
+    
+	   if(t.error || t.message)
+	   {
+		console.log("hello error");
+		setError({error1: t.error,message:t.message});
+
+	   }
+	 //  console.log(error);
+      
+	}
 	};
 
     const styleprops = useSpring(
         {
         from:{
                 opacity:0,
-                trasnform:'translate(-4000px,-1000px)',
+                transform:'translate(-4000px,-1000px)',
             },
         opacity:1,
-        trasnform:'translate(40px,0)',
+        transform:'translate(0,0)',
         }
     )
 
@@ -53,7 +79,7 @@ const SignUp = (props) => {
 							type="name"
 							name="name"
 							onChange={handleChange}
-							value={data.email}
+							value={data.name}
 							required
 							className={styles.input}
 						/>
@@ -70,7 +96,7 @@ const SignUp = (props) => {
                         <span>Password</span>
                         <br></br>
 						<input 
-							type="confirmPassword"
+							type="password"
 							name="confirmPassword"
 							onChange={handleChange}
 							value={data.confirmPassword}
@@ -86,10 +112,11 @@ const SignUp = (props) => {
 							value={data.phoneNo}
 							required
 							className={styles.input}
+							pattern="[0-9]{10}"
                             />
 						<span>Contact No.</span>
 						<br></br>
-						{error && <div className={styles.error_msg}>{error}</div>}
+						{ {error} && <div className={styles.error_msg}>{error.error1}</div>}
 						<Button name="Sign Up" />
 						<div className={styles.last}>
 						<h3>Already have an Account?</h3>

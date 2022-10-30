@@ -13,17 +13,61 @@ const Login = (props) => {
 	const handleChange = ({ currentTarget: input }) => {
 		setData({ ...Data, [input.name]: input.value });
 	};
-	const handleSubmit=(e)=>{
+	const handleSubmit= async(e) =>{
 		e.preventDefault();
+		try {
+			
+			const {email,password}=Data;
+			  const res= await fetch("/login",{
+				method:"POST",
+				headers:{
+					"Content-Type":"application/json"
+				},
+				body:JSON.stringify({
+			            email,password
+				})
+			  });
+			//   const res= await fetch("/send-sms",{
+			// 	method:"GET",
+			// 	headers:{
+			// 		"Content-Type":"application/json"
+			// 	},
+			// 	// body:JSON.stringify({
+					   
+			// 	// })
+			//   });
+		//	const res= await axios.post("/login", Data);
+			//  res.json().then(data)=>{}
+		  const y= await res.json();
+		//  localStorage.setItem("jtwtoken",JSON.stringify(y.token));
+		//  setLogin("jwtokenlocal",y.token);
+	
+		if(y.token && y)
+		{
+			console.log("logged in");
+			// navigate("/");
+			window.location.href="/";
+		}
+		else
+		{
+			  console.log("error in  respsone or token is not genearte properly");
+		}
+		
+			} catch (error) {
+				console.log(error);
+			}
+
+
+
 	};
   	const styleprops = useSpring(
 	{
 	from:{
 			opacity:0,
-			trasnform:'translate(-4000px,-1000px)',
+			transform:'translate(-4000px,-1000px)',
 	},
 	opacity:1,
-	trasnform:'translate(40px,0)',
+	transform:'translate(0,0)',
 	}
 	)
 
