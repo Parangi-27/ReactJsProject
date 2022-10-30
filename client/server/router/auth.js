@@ -14,15 +14,6 @@ router.get('/', (req,res)=>{
     router.post('/register', async (req,res)=>{
         console.log("register form node");
         const {name,email,password,confirmPassword,phoneNo}=req.body;
-        // console.log(firstName);
-        // console.log(lastName);
-        // console.log(email);
-        // console.log(password);
-        // if(!firstName||!lastName || !email || !password)
-        // {
-        //     return res.status(422).json({error:"plz filled the properly"});
-
-        // }
         try{
            const userexit=await User.findOne({email:email});
             if(userexit)
@@ -60,12 +51,9 @@ router.get('/', (req,res)=>{
         const {email,password}=req.body;
         let token;
         try{
-        if(!email || !password)
-        {
-            return res.status(400).send({error:"plz filled th data"});
-        }
+
         const userlogin=await User.findOne({email:email});
-      console.log()
+     // console.log()
          if(userlogin)
          {
           //  const salt=await bcrypt.genSalt(10);

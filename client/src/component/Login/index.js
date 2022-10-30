@@ -39,7 +39,7 @@ const Login = (props) => {
 		//	const res= await axios.post("/login", Data);
 			//  res.json().then(data)=>{}
 		  const y= await res.json();
-		//  localStorage.setItem("jtwtoken",JSON.stringify(y.token));
+	 localStorage.setItem("jtwtoken",JSON.stringify(y.token));
 		//  setLogin("jwtokenlocal",y.token);
 	
 		if(y.token && y)

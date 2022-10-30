@@ -92,6 +92,7 @@ button {
    transition: all 0.3s ease;
    text-decoration: none;
    border: none;
+   border-radius: 6%;
   }
 .btn16:hover {
   color: #fff;
@@ -103,6 +104,7 @@ button {
   7px 7px 20px 0px rgba(0,0,0,.1),
   4px 4px 5px 0px rgba(0,0,0,.1);
   border: none;
+  border-radius: 6%;
 }
 .btn16:hover:after {
   left: auto;

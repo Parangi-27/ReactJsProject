@@ -42,6 +42,10 @@ const SignUp = (props) => {
 		setError({error1: t.error,message:t.message});
 
 	   }
+	   if(t.message)
+	   {
+		window.location.href="/login";
+	   }
 	 //  console.log(error);
       
 	}
