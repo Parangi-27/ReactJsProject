@@ -4,7 +4,7 @@ import Button from '../Button/button';
 import { NavLink} from 'react-router-dom';
 import { useState,useEffect } from "react";
 import {animated,useSpring } from 'react-spring';
-const logo =require("../My Gifs collection #4.gif");
+const logo =require("../Screenshot 2022-10-22 173210.png");
 //import { Link, useNavigate,NavLink } from "react-router-dom";
 
 const Login = (props) => {
@@ -74,13 +74,13 @@ const Login = (props) => {
 	useEffect(() => {
 		setTimeout(() => {
 		  setload(false);
-		}, 10000);
-	  },[]);
+		}, 1000);
+	  });
 	
   return (
 	
 	<>
-	{loading} ? (<img  alt="loading..."src={logo}></img>):(
+	{/* {{loading } && <img  alt="loading..."src={logo}></img>} */}
      <div className={styles.login_container}>
 	 
        <animated.div style={styleprops} className={styles.login_inner}>
@@ -122,7 +122,7 @@ const Login = (props) => {
 					</animated.form>
        </animated.div>
 
-    </div>)
+    </div>
 	</>
 
   )

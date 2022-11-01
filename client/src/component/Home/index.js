@@ -5,29 +5,39 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
+import Credit from "../Credit";
+
+
 const Home = () => {
   return (
-
     <div>
-    <Navbar />
-      <h1>Home Page</h1>
-      <br />
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          {/* Endpoint to route to About component */}
-          <Link to="/login">Login</Link>
-        </li>
-        <li>
-          {/* Endpoint to route to Contact Us component */}
-          <Link to="/signup">SignUp</Link>
-        </li>
-      </ul>
-    <Footer />
+    {/* <Navbar /> */}
+
+
+      <Credit/>
+  
+    {/* <Footer /> */}
     </div>
   );
 };
   
 export default Home;
+
+
+
+
+// <h1>Home Page</h1>
+// <br />
+// <ul>
+//   <li>
+//     <Link to="/">Home</Link>
+//   </li>
+//   <li>
+//     {/* Endpoint to route to About component */}
+//     <Link to="/login">Login</Link>
+//   </li>
+//   <li>
+//     {/* Endpoint to route to Contact Us component */}
+//     <Link to="/signup">SignUp</Link>
+//   </li>
+// </ul>

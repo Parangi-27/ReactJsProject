@@ -4,8 +4,22 @@ const bcrypt=require('bcryptjs');
 const User = require('../model/userschema');
 const { useNavigate } = require('react-router-dom');
 const router=express.Router();
+// const {parse, stringify} = require('flatted/cjs');
 //const jwt=require('jsonwebtoken');
 //const navigate=useNavigate();
+const getCircularReplacer = () => {
+  const seen = new WeakSet();
+  return (key, value) => {
+    if (typeof value === 'object' && value !== null) {
+      if (seen.has(value)) {
+        return;
+      }
+      seen.add(value);
+    }
+    return value;
+  };
+};
+
 
 router.get('/', (req,res)=>{
     res.send(`hello world from the  router server`) 
@@ -16,9 +30,10 @@ router.get('/', (req,res)=>{
         const {name,email,password,confirmPassword,phoneNo}=req.body;
         try{
            const userexit=await User.findOne({email:email});
-            if(userexit)
+           const username=await User.findOne({name:name});
+            if(userexit && username)
             {
-                return res.status(422).json({error:"email is exits"});
+                return res.status(422).json({error:"email & name is exits"});
             }
             else if(password!==confirmPassword)
             {
@@ -80,6 +95,7 @@ router.get('/', (req,res)=>{
             }
             else
             {
+              console.log("genrate")
               token=await userlogin.generateAuthToken();
                 const obj={
                     "message":"user sucesfully",
@@ -106,4 +122,14 @@ router.get('/', (req,res)=>{
 
    })
 
+   router.get('/data', async(req,res)=>
+   {
+        const objectdata= await User.find({})
+       console.log(objectdata)
+    
+   //  console.log(objk);
+       //return objectdata;
+        res.status(201).json(objectdata);
+
+   })
     module.exports=router;
