@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { NavLink} from 'react-router-dom';
 import "./navbar.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
+// import "bootstrap-icons/font/bootstrap-icons.css";
 import 'font-awesome/css/font-awesome.min.css';
 /**https://codepen.io/codebucks27/details/yLMvOPX */
 function Navbar() {
-    const [click, setClick] = React.useState(false);
+    const [click, setClick] = useState(false);
   
     const handleClick = () => setClick(!click);
     const Close = () => setClick(false);
@@ -16,8 +16,8 @@ function Navbar() {
         <nav className="navbar" onClick={e => e.stopPropagation()}>
           <div className="nav-container">
             <NavLink exact to="/" className="nav-logo">
-              CodeBucks
-              <i className="fa fa-code"></i>
+             khata-book
+             <i className="fa fa-code"></i>
             </NavLink>
             <ul className={click ? "nav-menu active" : "nav-menu"}>
               <li className="nav-item">
@@ -81,7 +81,7 @@ function Navbar() {
             </div>
           </div>
         </nav>
-      </ div>
+      </div>
     );
   }
 

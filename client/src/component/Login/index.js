@@ -2,13 +2,14 @@ import React from 'react';
 import styles from "./styles.module.css";
 import Button from '../Button/button';
 import { NavLink} from 'react-router-dom';
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import {animated,useSpring } from 'react-spring';
-
+const logo =require("../My Gifs collection #4.gif");
 //import { Link, useNavigate,NavLink } from "react-router-dom";
 
 const Login = (props) => {
 	const [Data, setData] = useState({ email: "", password: "" });
+	const [loading, setload] = useState(true);
 	const [error, setError] = useState("");
 	const handleChange = ({ currentTarget: input }) => {
 		setData({ ...Data, [input.name]: input.value });
@@ -70,9 +71,16 @@ const Login = (props) => {
 	transform:'translate(0,0)',
 	}
 	)
-
+	useEffect(() => {
+		setTimeout(() => {
+		  setload(false);
+		}, 10000);
+	  },[]);
+	
   return (
 	
+	<>
+	{loading} ? (<img  alt="loading..."src={logo}></img>):(
      <div className={styles.login_container}>
 	 
        <animated.div style={styleprops} className={styles.login_inner}>
@@ -114,7 +122,8 @@ const Login = (props) => {
 					</animated.form>
        </animated.div>
 
-    </div>
+    </div>)
+	</>
 
   )
 }

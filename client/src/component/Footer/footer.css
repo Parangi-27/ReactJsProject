@@ -1,9 +1,9 @@
-* {
-    box-sizing: border-box;
-    color: #ccc;
+/* * {
+   
+    color: white;
     align-items: center;
   }
-  
+   */
   strong {
     font-weight: 700;
   }
@@ -11,7 +11,7 @@
   /* ==== SIMPLE FOOTER ==== */
   
 footer {
-    display: table;
+    /* display: table; */
     width: 100vw;
     height: 8rem;
     text-align: center;
@@ -20,6 +20,8 @@ footer {
     font-size: 1.0rem;
     background-color: #000;
     color: #000;
+    
+  
 }
 
 .wrapper {
@@ -29,7 +31,7 @@ footer {
     background-color: black;
     display:flexbox;
     vertical-align: middle;
-    margin-top: 25px;
+    margin-top:28%;
     padding: 25px;
 }
 

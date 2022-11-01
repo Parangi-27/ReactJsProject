@@ -6,8 +6,13 @@
     position: relative;
     min-height: 300px;
 }   
+*{
+    --bgcolor:black;
+    --textcolor:white;
+    --bordercolor:lightblue;
+}
 body{
-    background-color:black;
+    background-color:var(--bgcolor);
     /* overflow: hidden; */
 }
 .login_inner
@@ -20,15 +25,15 @@ body{
     margin: 4rem auto;
     justify-content: center;
     align-items: center;
-    background-color: black;
-    color:white;
+    background-color: var(--bgcolor);
+    color:var(--textcolor);
     padding: 4%;
     border-radius: 6%;
     transition: 0.5s;
     /* animation-duration: 10s; */
-    box-shadow: 10px 10px 11px #00dfc4;
-   border-top: 0.25px groove #00dfc4; 
-   border-left: 0.25px groove #00dfc4; 
+    box-shadow: 10px 10px 11px var(--bordercolor);
+   border-top: 0.25px groove var(--bordercolor); 
+   border-left: 0.25px groove var(--bordercolor); 
    
 }
 
@@ -39,7 +44,7 @@ body{
     left:32%;
     text-transform: uppercase;
     font-weight: 900;
-    color: #00dfc4;
+    color: var(--bordercolor);
     /* font-style: italic; */
     letter-spacing: 3px;
     font-family: "Times New Roman", Times, serif;
@@ -59,11 +64,11 @@ width: 250px;
 max-width: 100%;
 padding: 10px;
 border: 1px solid Orgba(255,255,255,0.25); 
-background: black;
+background: var(--bgcolor);
 border-radius: 5px;
 margin: 6%;
 outline: none;
-color: #fff;
+color: white;
 font-size: 1em;
 transition: 0s;
 }
@@ -85,7 +90,7 @@ transition: 0s;
 .inputBox input:focus ~ span
 {
 /* position: relative; */
-color: #00dfc4;
+color: var(--bordercolor);
  left: -4%;
  margin-left: 10%; 
  /* top: -8%; */
@@ -98,15 +103,12 @@ margin-top: -5%;
 /* transform: translateX(2%) translateY(-3%);   */
 font-size: 0.65em;
 padding: 0 10px;
-background: black;
-border-left: 1px solid #00dfc4;
-border-right: 1px solid #00dfc4;
+background: var(--bgcolor);
+border-left: 1px solid var(--bordercolor);
+border-right: 1px solid var(--bordercolor);
 letter-spacing: 0.2em;
 }
 
-NavLink{
-    text-decoration: none;
-}
 
 h3{
     font-family: 'Times New Roman', Times, serif;
@@ -119,5 +121,4 @@ h3{
 div.last{
     display: flex;
     flex-direction: row;
-    
 }
