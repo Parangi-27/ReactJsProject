@@ -12,7 +12,7 @@
     --bordercolor:lightblue;
 }
 body{
-    background-color:var(--bgcolor);
+    /* background-color:var(--bgcolor); */
     /* overflow: hidden; */
 }
 .login_inner

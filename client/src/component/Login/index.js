@@ -4,7 +4,7 @@ import Button from '../Button/button';
 import { NavLink} from 'react-router-dom';
 import { useState,useEffect } from "react";
 import {animated,useSpring } from 'react-spring';
-const logo =require("../Screenshot 2022-10-22 173210.png");
+
 //import { Link, useNavigate,NavLink } from "react-router-dom";
 
 const Login = (props) => {
@@ -41,6 +41,7 @@ const Login = (props) => {
 			//  res.json().then(data)=>{}
 		  const y= await res.json();
 	 localStorage.setItem("jtwtoken",JSON.stringify(y.token));
+	 localStorage.setItem("loginuser",JSON.stringify(y.loginuser));
 		//  setLogin("jwtokenlocal",y.token);
 	
 		if(y.token && y)

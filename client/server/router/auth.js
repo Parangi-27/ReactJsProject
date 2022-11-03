@@ -7,19 +7,6 @@ const router=express.Router();
 // const {parse, stringify} = require('flatted/cjs');
 //const jwt=require('jsonwebtoken');
 //const navigate=useNavigate();
-const getCircularReplacer = () => {
-  const seen = new WeakSet();
-  return (key, value) => {
-    if (typeof value === 'object' && value !== null) {
-      if (seen.has(value)) {
-        return;
-      }
-      seen.add(value);
-    }
-    return value;
-  };
-};
-
 
 router.get('/', (req,res)=>{
     res.send(`hello world from the  router server`) 
@@ -99,7 +86,8 @@ router.get('/', (req,res)=>{
               token=await userlogin.generateAuthToken();
                 const obj={
                     "message":"user sucesfully",
-                    "token":token
+                    "token":token,
+                    "loginuser":userlogin
                 }
                 console.log(obj);
                 res.status(201).json(obj);
@@ -131,5 +119,12 @@ router.get('/', (req,res)=>{
        //return objectdata;
         res.status(201).json(objectdata);
 
+   })
+   router.post('/money', async(req,res)=>
+   {   
+       const {amount,namec,loginuser}=req.body;
+const r=loginuser.name;
+const d=User.findOne({name:r});
+       const user=await d.enterAmountCredit(amount,namec);
    })
     module.exports=router;

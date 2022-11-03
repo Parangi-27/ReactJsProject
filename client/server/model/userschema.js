@@ -19,6 +19,26 @@ const userschema=new mongoose.Schema({
         type:Number,
         required:true
     },
+   
+        credit:[{
+            name:{
+            type:String,
+            reuired:true},
+            amount:{
+                type:Number,
+                required:true
+            }
+        }],
+        debit:[{
+            name:{
+            type:String,
+            reuired:true},
+            amount:{
+                type:Number,
+                required:true
+            }
+        }],
+
     tokens:[{
 
         token:{
@@ -26,6 +46,7 @@ const userschema=new mongoose.Schema({
             reuired:true
         }
     }]
+    
 })
 
 
@@ -60,6 +81,19 @@ userschema.methods.generateAuthToken=async function()
     }
 }
 
+userschema.methods.enterAmountCredit=async function(amountq,namec)
+{
+    try{
+           this.credit=this.credit.concat({amount:amountq,
+        name:namec});
+        await this.save();
+        return "sucess";
+    
 
+    }catch(err)
+    {
+        console.log(err);
+    }
+}
 const User=mongoose.model('creditentr',userschema);
 module.exports=User; 
