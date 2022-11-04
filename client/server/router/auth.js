@@ -132,6 +132,6 @@ const d= await User.findOne({email:r});
 // console.log(namec);
 // console.log(loginuser);
 console.log(d);
-      const user=await d.enterAmountCredit(amount,namec);
+      const user=await d.enterAmountCredit(amount,namec,d);
    })
     module.exports=router;

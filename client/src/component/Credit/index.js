@@ -86,7 +86,7 @@ var x=localStorage.getItem("loginuser")
 
          {post.g.map((add,i) => (
 			 
-            {    {add.name}===name ? :<option value={add.name} key={i} >{add.name}</option>}
+        <option value={add.name} key={i} >{add.name}</option>
                ))
               } 
 

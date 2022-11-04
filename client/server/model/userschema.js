@@ -83,7 +83,7 @@ userschema.methods.generateAuthToken=async function()
     }
 }
 
-userschema.methods.enterAmountCredit=async function(amountq,namec)
+userschema.methods.enterAmountCredit=async function(amountq,namec,d)
 {
     // console.log(amountq)
     // console.log(namec);
@@ -92,7 +92,7 @@ userschema.methods.enterAmountCredit=async function(amountq,namec)
       });
       const q= await User.findOne({name:namec.result});
       console.log(q);
-      q.debit=q.debit.concat({ name:namec.result,amount:amountq
+      q.debit=q.debit.concat({ name:d.name,amount:amountq
       });
       await q.save();
         await this.save();
