@@ -122,9 +122,16 @@ router.get('/', (req,res)=>{
    })
    router.post('/money', async(req,res)=>
    {   
-       const {amount,namec,loginuser}=req.body;
-const r=loginuser.name;
-const d=User.findOne({name:r});
-       const user=await d.enterAmountCredit(amount,namec);
+      var {amount,namec,loginuser}=req.body;
+loginuser=JSON.parse(loginuser);
+const r=loginuser.email;
+console.log("hello now:---");
+console.log(r);
+const d= await User.findOne({email:r});
+// console.log(amount);
+// console.log(namec);
+// console.log(loginuser);
+console.log(d);
+      const user=await d.enterAmountCredit(amount,namec);
    })
     module.exports=router;

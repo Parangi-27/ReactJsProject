@@ -10,7 +10,9 @@ import Dropdown from '../Dropdown';
 // import Drop from '../Drop';
 
 const Credit = () => {
-
+var x=localStorage.getItem("loginuser")
+  x=JSON.parse(x);
+  x=x.name;
     const [Data, setData] = useState({amount:""});
 	const [loading, setload] = useState(true);
 	// const [display, setdisplay] = useState(true);
@@ -83,7 +85,8 @@ const Credit = () => {
               <option value="chosse">Choose Name</option>
 
          {post.g.map((add,i) => (
-             <option value={add.name} key={i} >{add.name}</option>
+			 
+            {    {add.name}===name ? :<option value={add.name} key={i} >{add.name}</option>}
                ))
               } 
 

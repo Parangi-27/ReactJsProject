@@ -20,11 +20,13 @@ const userschema=new mongoose.Schema({
         required:true
     },
    
-        credit:[{
-            name:{
+    credit:[{
+            
+        name:{
             type:String,
-            reuired:true},
-            amount:{
+            reuired:true
+        },
+        amount:{
                 type:Number,
                 required:true
             }
@@ -83,12 +85,19 @@ userschema.methods.generateAuthToken=async function()
 
 userschema.methods.enterAmountCredit=async function(amountq,namec)
 {
+    // console.log(amountq)
+    // console.log(namec);
     try{
-           this.credit=this.credit.concat({amount:amountq,
-        name:namec});
+           this.credit=this.credit.concat({ name:namec.result,amount:amountq
+      });
+      const q= await User.findOne({name:namec.result});
+      console.log(q);
+      q.debit=q.debit.concat({ name:namec.result,amount:amountq
+      });
+      await q.save();
         await this.save();
-        return "sucess";
-    
+          return "sucess";
+   // console.log(this);
 
     }catch(err)
     {
