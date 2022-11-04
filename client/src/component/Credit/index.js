@@ -13,7 +13,12 @@ const Credit = () => {
 var x=localStorage.getItem("loginuser")
   x=JSON.parse(x);
   x=x.name;
+ 
+ 
     const [Data, setData] = useState({amount:""});
+    const [loguser, setLoguser] = useState({
+		h:[]
+	});
 	const [loading, setload] = useState(true);
 	// const [display, setdisplay] = useState(true);
 	const [error, setError] = useState("");
@@ -38,17 +43,20 @@ var x=localStorage.getItem("loginuser")
 			body:JSON.stringify({
 					amount,namec,loginuser
 			})
-		  });
+		  },[]);
 
 	}
 	const changevalue=(e)=>{
 		setvalue(e.target.value);
 		
 	};
+	const fetchcurruser=()=>{
+		return post.g.find(u=>u.name===x)
+	}
 	
 	useEffect(()=>{
-		
-		axios.get("http://localhost:8080/data")
+		const fecting= async()=>{
+		await axios.get("http://localhost:8080/data")
 		  .then(res=>{
 
 		
@@ -56,11 +64,18 @@ var x=localStorage.getItem("loginuser")
 				// setPost([...post,{[res.data.name]}]);
 				// console.log(res.data);
 				// console.log(post);
-			 setPost({g:res.data})
-				console.log(res.data);
-				console.log(post);
+			  setPost({g:res.data})
+			   let s=fetchcurruser();
+         //   console.log(s);
+         //   console.log(x);
+			   setLoguser({h:s.credit})
+			  console.log(loguser)
+			//	console.log(res.data);
+				//console.log(post);
 		  },
 		  error=>{console.log("error in fecting");})
+		  fecting();
+		}
 		},[]);
 		// 
 	
@@ -94,10 +109,14 @@ var x=localStorage.getItem("loginuser")
 		  <h1>{result}</h1> 
 			 <Button name="credit" />
           </animated.form>
-		   {/* {post.credit.map((add,i)=>(
-			<li value={add.name} key={i}>{add.name} {add.amount}</li>
-		   ))} */}
-			 
+
+		  {loguser.h.map((add,i)=>(
+			<div>
+			<li value={add.name} key={i}>{add.name}</li>
+			<li value={add.amount} key={i+1}>{add.amount}</li>
+			</div>
+		   ))}       
+			  
 			
            
 </div>
