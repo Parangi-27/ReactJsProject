@@ -1,0 +1,33 @@
+.color {
+    color: orange;
+}
+
+* {
+    margin: 0%;
+    padding: 0%;
+}
+
+.contmain {
+    position: relative;
+    width: 25%;
+    height: 30%;
+    min-height: 250px;
+    min-width: 300px;
+    margin: 4rem auto;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bgcolor);
+    color: var(--textcolor);
+    padding: 4%;
+    border-radius: 6%;
+    transition: 0.5s;
+    /* animation-duration: 10s; */
+    box-shadow: 10px 10px 11px var(--bordercolor);
+    border-top: 0.25px groove var(--bordercolor);
+    border-left: 0.25px groove var(--bordercolor);
+
+}
+
+.contmain h1 {
+    color: brown;
+}

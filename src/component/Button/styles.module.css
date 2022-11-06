@@ -1,0 +1,120 @@
+/* .custombutton {
+    border: none;
+    border-radius: 5px;
+    color: white;
+    width: fit-content;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 20px 10px 20px;
+    box-shadow: 2px 2px 6px grey;
+    transition: .25s;
+    overflow: hidden;
+    position: relative;
+}
+
+.custombutton:after {
+    content: "";
+    background: lightgray;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.custombutton:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+
+/* Button Colors 
+.blue {
+    background-color: #4885ed;
+} */
+
+/* Button Effects 
+.button-container button.custombutton.blue:hover {
+    cursor: pointer;
+    background-color: #2b5294;
+    box-shadow: 2px 2px 20px grey;
+}
+*/
+
+button {
+    margin:25px 20px;
+    text-decoration: none;
+    border: none;
+}
+.btn16 {
+  width: 150px;
+  height: 40px;
+  font-size: 15px;
+  color: #00dfc4;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: "Times New Roman", Times, serif;
+  text-transform: uppercase;
+  font-weight: 900;
+  background: transparent;
+  letter-spacing: 0.5vh;
+  left: 23%;
+ 
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline;
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+  7px 7px 20px 0px rgba(0,0,0,.1),
+  4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+  border: none;
+}
+.btn16:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  direction: rtl;
+  z-index: -1;
+  box-shadow:
+  -7px -7px 20px 0px #fff9,
+   -4px -4px 5px 0px #fff9,
+   7px 7px 20px 0px #0002,
+   4px 4px 5px 0px #0001;
+   transition: all 0.3s ease;
+   text-decoration: none;
+   border: none;
+   border-radius: 6%;
+  }
+.btn16:hover {
+  color: #fff;
+  transition-duration: 2ms;
+  text-decoration: none;
+  font-size: 17px;
+  direction: ltr;
+  box-shadow:inset 2px 2px 2px 0px rgba(255, 255, 255, 0.603),
+  7px 7px 20px 0px rgba(0,0,0,.1),
+  4px 4px 5px 0px rgba(0,0,0,.1);
+  border: none;
+  border-radius: 6%;
+}
+.btn16:hover:after {
+  left: auto;
+  right: 0;
+  width: 100%;
+  text-decoration: none;
+  border: none;
+}
+.btn16:active {
+  top: 2px;
+  text-decoration: none;
+  border: none;
+}
