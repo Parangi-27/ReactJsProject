@@ -7,51 +7,61 @@
 
 body {
     background: var(--bgcolor);
+
     /* overflow: hidden; */
 }
 .login_container {
     width: 100%;
     height: 20%;
+    margin: auto;
     min-width: 300px;
     position: relative;
     min-height: 300px;
+    display: flex;
+  
+    flex-direction: row;
 }
 .box{
-    margin: 18rem auto;
+    
+    margin: 4rem auto;
     background-color: white;
     /* left: 9%; */
-    align-items: center;
-    justify-content: center;
+    /* align-items: center;
+    justify-content: center; */
     /* margin-top: 22%;
     margin-right: 5%;
     margin-left: 5%; */
-    height: 100%;
     height: 500px;
-    width: 650px;
-    width: 70%;
-    position:relative;
+  min-width:500px ;
+max-width: 60%;
+
+  
     box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.4);
     border-radius: 2%;
 }
 .image{
-    width: 50%;
+    width: 40%;
     float: left;
-    height:100%;
-    margin-top: 0%;
+    height:167%;
+  
+    border-radius: 2%;
 }
 .login_inner{
     position: relative;
-    flex: right;
+margin-left:15%;
+height: 500px;
+
+max-width: 60%;
+    /* width: 70%; */
     justify-content: center;
-    margin-top: -25%;
+    /* margin-top: -25%;
     /* width: 25%; */
-    height: 30%;
-    min-height: 250px;
+
+    
     /* min-width: 300px; */
 }
 .textlogin {
-    margin-top: -3%;
-    position: relative;
+ 
     left: 10%;
     font-weight: 900;
     letter-spacing: 3px;
@@ -66,20 +76,23 @@ body {
 }
 .inputBox {
     position: relative;
-    left: 5vh;
+    left: 4vh;
 }
 .inputBox input {
     position: relative;
     left: 2%;
+    right: 3%;
     width: 250px;
     max-width: 100%;
+    margin: 5%;
     padding: 10px;
+   
     border: 1px solid Orgba(255, 255, 255, 0.25);
     background: var(--bgcolor);
     border-radius: 5px;
-    margin: 2%;
+    
     outline: none;
-    color: white;
+    color: black;
     font-size: 1em;
     transition: 0s;
 }
@@ -92,7 +105,8 @@ h3 {
 }
 .inputBox span {
     position: relative;
-    left: -30%;
+    left: -9%;
+    margin-left: -100%;
     padding: 2%;
     pointer-events: none;
     font-size: 1em;
@@ -100,6 +114,10 @@ h3 {
     text-transform: uppercase;
     transition: 0s;
 } 
+
+.inputBox input:active{
+    background-color: antiquewhite;
+}
 .inputBox input:valid~span,
 .inputBox input:focus~span {
     left: -7%;
@@ -112,12 +130,18 @@ h3 {
     /* padding: 2%; */
     /* margin-top: -5%;
     margin-left: -100%;     */
+  
     transform: translateX(2%) translateY(-3%);  
     /* background: var(--bgcolor); */
     /* border-left: 1px solid var(--bordercolor); */
     /* border-right: 1px solid var(--bordercolor); */
     letter-spacing: 0.2em;
 }
+div.last {
+
+    justify-items: center;
+
+} 
 
 /* .login_inner {
     position: relative;

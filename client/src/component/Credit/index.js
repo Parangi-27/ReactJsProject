@@ -90,6 +90,7 @@ const Credit = () => {
 
   return (
     <div>
+      <Navbar />
       <div className={styles.contmain}>
         <animated.form onSubmit={handleSubmit}>
           <span className={styles.color}>Amount</span>

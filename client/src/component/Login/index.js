@@ -4,8 +4,8 @@ import Button from "../Button/button";
 import login from "./login.png";
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { animated, useSpring } from "react-spring";
-
+import { animated, config, useSpring } from "react-spring";
+import gif from "../loaderlogo.gif"
 //import { Link, useNavigate,NavLink } from "react-router-dom";
 
 const Login = (props) => {
@@ -60,24 +60,34 @@ const Login = (props) => {
     from: {
       opacity: 0,
       transform: "translate(-4000px,-1000px)",
+      rotateZ:0,
     },
-    opacity: 1,
+    to:{opacity: 1,
     transform: "translate(0,0)",
+    rotateZ:360,
+    },
+    delay:4000,
+    config:{
+      duration:1250,
+    }
   });
   useEffect(() => {
     setTimeout(() => {
       setload(false);
-    }, 1000);
-  });
+    },4000);
+  },[]);
 
   return (
     <>
-      {/* {{loading } && <img  alt="loading..."src={logo}></img>} */}
-      <div className={styles.box}>
-        <img src={login} alt="img" className={styles.image}></img>
+     {loading ? (<animated.img  src={gif} alt="load"></animated.img>):( 
+      <animated.div style={styleprops} className={styles.box}>
+      
+       
         <div className={styles.login_container}>
-          <animated.div style={styleprops} className={styles.login_inner}>
-            <animated.form style={styleprops} onSubmit={handleSubmit}>
+        <img src={login} alt="img" className={styles.image}></img>
+       
+            <form style={styleprops} onSubmit={handleSubmit}>
+            <div  className={styles.login_inner}>
               <h1 className={styles.textlogin}>
                 {" "}
                 &lt;login <span className={styles.st}>/</span>&gt;
@@ -114,10 +124,12 @@ const Login = (props) => {
                   </NavLink>
                 </div>
               </div>
-            </animated.form>
-          </animated.div>
+               </div>
+            </form>
+         
         </div>
-      </div>
+      
+      </animated.div>)} 
     </>
   );
 };
