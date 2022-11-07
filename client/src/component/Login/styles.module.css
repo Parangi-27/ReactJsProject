@@ -7,7 +7,7 @@
 }
 
 * {
-    --bgcolor: black;
+    --bgcolor: #1f1f1f;
     --textcolor: white;
     --bordercolor: #ffbf00;
 }
