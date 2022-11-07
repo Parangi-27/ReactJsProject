@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { animated, useSpring } from "react-spring";
 import axios from "axios";
 import Select from "react-select";
-import Dropdown from "../Dropdown";
+
 // import Drop from '../Drop';
 
 const Credit = () => {
@@ -40,8 +40,7 @@ const Credit = () => {
 
     const namec = { result };
     const loginuser = localStorage.getItem("loginuser");
-    const res = await fetch(
-      "/money",
+    const res = await fetch( "/money",
     {
         method: "POST",
         headers: {
