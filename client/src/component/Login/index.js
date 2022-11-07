@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./styles.module.css";
 import Button from "../Button/button";
+import login from "./login.png";
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { animated, useSpring } from "react-spring";
@@ -72,44 +73,50 @@ const Login = (props) => {
   return (
     <>
       {/* {{loading } && <img  alt="loading..."src={logo}></img>} */}
-      <div className={styles.login_container}>
-        <animated.div style={styleprops} className={styles.login_inner}>
-          <animated.form style={styleprops} onSubmit={handleSubmit}>
-            <h1 className={styles.textlogin}> Login</h1>
-            <div className={styles.inputBox}>
-              <input
-                type="email"
-                name="email"
-                onChange={handleChange}
-                value={Data.email}
-                required
-                className={styles.input}
-              />
-              <span>Email</span>
+      <div className={styles.box}>
+        <img src={login} alt="img" className={styles.image}></img>
+        <div className={styles.login_container}>
+          <animated.div style={styleprops} className={styles.login_inner}>
+            <animated.form style={styleprops} onSubmit={handleSubmit}>
+              <h1 className={styles.textlogin}>
+                {" "}
+                &lt;login <span className={styles.st}>/</span>&gt;
+              </h1>
+              <div className={styles.inputBox}>
+                <input
+                  type="email"
+                  name="email"
+                  onChange={handleChange}
+                  value={Data.email}
+                  required
+                  className={styles.input}
+                />
+                <span>Email</span>
 
-              <br></br>
-              <input
-                type="password"
-                name="password"
-                onChange={handleChange}
-                value={Data.password}
-                required
-                className={styles.input}
-              />
-              <span>Password</span>
-              <br></br>
-              {error && <div className={styles.error_msg}>{error}</div>}
+                <br></br>
+                <input
+                  type="password"
+                  name="password"
+                  onChange={handleChange}
+                  value={Data.password}
+                  required
+                  className={styles.input}
+                />
+                <span>Password</span>
+                <br></br>
+                {error && <div className={styles.error_msg}>{error}</div>}
 
-              <Button name="Login" />
-              <div className={styles.last}>
-                <h3>Don't have an Account?</h3>
-                <NavLink to="/signup">
-                  <Button name="SignUp" />
-                </NavLink>
+                <Button name="Login" />
+                <div className={styles.last}>
+                  <h3>Don't have an Account?</h3>
+                  <NavLink to="/signup">
+                    <Button name="SignUp" />
+                  </NavLink>
+                </div>
               </div>
-            </div>
-          </animated.form>
-        </animated.div>
+            </animated.form>
+          </animated.div>
+        </div>
       </div>
     </>
   );
