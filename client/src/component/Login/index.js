@@ -5,7 +5,7 @@ import login from "./login.png";
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { animated, config, useSpring } from "react-spring";
-import gif from "../loaderlogo.gif"
+import gif from "../loaderlogo.gif";
 //import { Link, useNavigate,NavLink } from "react-router-dom";
 
 const Login = (props) => {
@@ -60,76 +60,71 @@ const Login = (props) => {
     from: {
       opacity: 0,
       transform: "translate(-4000px,-1000px)",
-      rotateZ:0,
+      rotateZ: 0,
     },
-    to:{opacity: 1,
-    transform: "translate(0,0)",
-    rotateZ:360,
+    to: { opacity: 1, transform: "translate(0,0)", rotateZ: 360 },
+    delay: 4000,
+    config: {
+      duration: 1250,
     },
-    delay:4000,
-    config:{
-      duration:1250,
-    }
   });
   useEffect(() => {
     setTimeout(() => {
       setload(false);
-    },4000);
-  },[]);
+    }, 4000);
+  }, []);
 
   return (
     <>
-     {loading ? (<animated.img  src={gif} alt="load"></animated.img>):( 
-      <animated.div style={styleprops} className={styles.box}>
-      
-       
-        <div className={styles.login_container}>
-        <img src={login} alt="img" className={styles.image}></img>
-       
+      {loading ? (
+        <animated.img src={gif} alt="load"></animated.img>
+      ) : (
+        <animated.div style={styleprops} className={styles.box}>
+          <div className={styles.login_container}>
+            <img src={login} alt="img" className={styles.image}></img>
             <form style={styleprops} onSubmit={handleSubmit}>
-            <div  className={styles.login_inner}>
-              <h1 className={styles.textlogin}>
-                {" "}
-                &lt;login <span className={styles.st}>/</span>&gt;
-              </h1>
-              <div className={styles.inputBox}>
-                <input
-                  type="email"
-                  name="email"
-                  onChange={handleChange}
-                  value={Data.email}
-                  required
-                  className={styles.input}
-                />
-                <span>Email</span>
+              <div className={styles.login_inner}>
+                <h1 className={styles.textlogin}>
+                  {" "}
+                  &lt;login <span className={styles.st}>/</span>&gt;
+                </h1>
+                <div className={styles.inputBox}>
+                  <input
+                    type="email"
+                    name="email"
+                    onChange={handleChange}
+                    value={Data.email}
+                    required
+                    className={styles.input}
+                  />
+                  <span>Email</span>
 
-                <br></br>
-                <input
-                  type="password"
-                  name="password"
-                  onChange={handleChange}
-                  value={Data.password}
-                  required
-                  className={styles.input}
-                />
-                <span>Password</span>
-                <br></br>
-                {error && <div className={styles.error_msg}>{error}</div>}
+                  <br></br>
+                  <input
+                    type="password"
+                    name="password"
+                    onChange={handleChange}
+                    value={Data.password}
+                    required
+                    className={styles.input}
+                  />
+                  <span>Password</span>
+                  <br></br>
+                  {error && <div className={styles.error_msg}>{error}</div>}
 
-                <Button name="Login" />
-                <div className={styles.last}>
-                  <h3>Don't have an Account?</h3>
-                  <NavLink to="/signup">
-                    <Button name="SignUp" />
-                  </NavLink>
+                  <Button name="Login" />
+                  <div className={styles.last}>
+                    <h3>Don't have an Account?</h3>
+                    <NavLink to="/signup">
+                      <Button name="SignUp" />
+                    </NavLink>
+                  </div>
                 </div>
               </div>
-               </div>
             </form>
-         
-        </div>
-      
-      </animated.div>)} 
+          </div>
+        </animated.div>
+      )}
     </>
   );
 };

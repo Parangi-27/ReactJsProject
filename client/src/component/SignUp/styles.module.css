@@ -1,107 +1,236 @@
-.signup_container
-{
+body {
+    background: var(--bgcolor);
+}
+
+.signup_container {
     width: 100%;
-    height:5%;
-    min-width:300px;
+    height: 20%;
+    margin: auto;
+    min-width: 300px;
     position: relative;
-    min-height: 200px;
-    margin-top: -5%;
-    /* margin-bottom: -10%; */
-    /* padding: 1% 0%; */
-}   
-/* body{
-    background-color:black;
-} */
-.signup_inner
-{
+    min-height: 300px;
+    display: flex;
+    flex-direction: row;
+}
+
+.box {
+    margin: 4rem auto;
+    background-color: white;
+    height: 675px;
+    min-width: 500px;
+    max-width: 60%;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.4);
+    border-radius: 2%;
+    /* left: 9%; */
+    /* align-items: center;
+    justify-content: center; */
+    /* margin-top: 22%;
+    margin-right: 5%;
+    margin-left: 5%; */
+}
+
+.image {
+    width: 40%;
+    float: left;
+    height: 225%;
+    border-radius: 2%;
+}
+
+.signup_inner {
     position: relative;
-   
-    width:25%;
+    margin-left: 15%;
+    height: 500px;
+    max-width: 60%;
+    justify-content: center;
+    /* width: 70%; */
+    /* margin-top: -25%;
+    /* width: 25%; */
+    /* min-width: 300px; */
+}
+
+.textlogin {
+    left: 10%;
+    font-weight: 900;
+    letter-spacing: 3px;
+    font-size: 2.5rem;
+    padding: 28px;
+    display: flex;
+    flex-direction: row;
+}
+
+.st {
+    color: blueviolet;
+    display: block;
+}
+
+.inputBox {
+    position: relative;
+    /* left: 4vh; */
+}
+
+.inputBox input {
+    position: relative;
+    left: 2%;
+    right: 3%;
+    width: 250px;
+    max-width: 100%;
+    margin: 5%;
+    padding: 5px;
+    border: 1px solid Orgba(255, 255, 255, 0.25);
+    background: var(--bgcolor);
+    border-radius: 5px;
+    outline: none;
+    color: black;
+    font-size: 1em;
+    transition: 0s;
+}
+
+h3 {
+    /* text-align: center; */
+    margin: 10px;
+    font-size: 1.1rem;
+    position: relative;
+    left: 8%;
+}
+
+.inputBox span {
+    position: relative;
+    left: -9%;
+    margin-left: -55%;
+    padding: 2%;
+    pointer-events: none;
+    font-size: 1em;
+    color: grey;
+    text-transform: uppercase;
+    transition: 0s;
+}
+
+.inputBox input:active {
+    background-color: antiquewhite;
+}
+
+.inputBox input:valid~span,
+.inputBox input:focus~span {
+    left: -7%;
+    margin-left: 10%;
+    padding: 0.5rem 0.5rem;
+    font-size: 0.65em;
+    position: relative;
+    top: -10%;
+    /* margin-top: -2%; */
+    /* padding: 2%; */
+    /* margin-top: -5%;
+    margin-left: -100%;     */
+    transform: translateX(2%) translateY(-3%);
+    /* background: var(--bgcolor); */
+    /* border-left: 1px solid var(--bordercolor); */
+    /* border-right: 1px solid var(--bordercolor); */
+    letter-spacing: 0.2em;
+}
+
+div.last {
+    justify-items: center;
+}
+
+/* .login_inner {
+    position: relative;
+    width: 25%;
     height: 30%;
     min-height: 250px;
     min-width: 300px;
-    margin: 8rem auto;
+    margin: 4rem auto;
     justify-content: center;
     align-items: center;
-    background-color: black;
-    color:white;
+    background-color: var(--bgcolor);
+    color: var(--textcolor);
     padding: 4%;
     border-radius: 6%;
-    animation-duration: 10s;
-    box-shadow: 10px 10px 11px #00dfc4;
-    border-top: 0.25px groove #00dfc4; 
-    border-left: 0.25px groove #00dfc4; 
-   
+    transition: 0.5s;
+    animation-duration: 10s; 
+    box-shadow: 10px 10px 11px var(--bordercolor);
+    border-top: 0.25px groove var(--bordercolor);
+    border-left: 0.25px groove var(--bordercolor); 
+
 }
 
-.textlogin
-{ 
+.textlogin {
     margin-top: -3%;
     position: relative;
-    left:32%;
+    left: 32%;
     text-transform: uppercase;
     font-weight: 900;
-    color: #00dfc4;
-    /* font-style: italic; */
+    color: var(--bordercolor);
+     font-style: italic; 
     letter-spacing: 3px;
-    font-family: "Times New Roman", Times, serif;
     font-size: 2rem;
 }
 
-.inputBox
-{
-position: relative;
 
-}
-.inputBox input
-{
-width: 250px;
-max-width: 100%;
-padding: 10px;
-border: 1px solid Orgba(255,255,255,0.25); 
-background: black;
-border-radius: 5px;
-margin: 6%;
-outline: none;
-color: #fff;
-font-size: 1em;
-transition: 0.5s;
-}
-.inputBox span 
-{ 
-position: absolute;
-left: 1%;
-margin-top:6%;
-margin-left:6%;
-padding: 10px;
-pointer-events: none;
-font-size: 1em;
-color: rgba(255, 255, 255, 0.498);
-text-transform: uppercase;
-transition: 0.5s;
-  }
-
-.inputBox input:valid ~ span,
-.inputBox input:focus ~ span
-{
-color: #00dfc4;
-transform: translateX(10px) translateY(-7px);
-font-size: 0.65em;
-padding: 0 10px;
-background: black;
-border-left: 1px solid #00dfc4;
-border-right: 1px solid #00dfc4;
-letter-spacing: 0.2em;
+.inputBox {
+    position: relative;
 }
 
-div.last{
+.inputBox input {
+    position: relative;
+    width: 250px;
+    max-width: 100%;
+    padding: 10px;
+    border: 1px solid Orgba(255, 255, 255, 0.25);
+    background: var(--bgcolor);
+    border-radius: 5px;
+    margin: 6%;
+    outline: none;
+    color: white;
+    font-size: 1em;
+    transition: 0s;
+}
+
+.inputBox span {
+    position: relative;
+    left: 2%;
+    margin-left: -92%;
+    padding: 2%;
+    pointer-events: none;
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.191);
+    text-transform: uppercase;
+    transition: 0s;
+} */
+/* 
+.inputBox input:valid~span,
+.inputBox input:focus~span {
+    color: var(--bordercolor);
+    left: -4%;
+    margin-left: 10%; */
+/* position: relative; */
+/* top: -8%; */
+/* margin-top: 4%; */
+/* padding: 2%; */
+/* 
+    margin-top: -5%;
+    margin-left: -100%; 
+    /* padding: 2%; */
+/* transform: translateX(2%) translateY(-3%);   */
+/* font-size: 0.65em;
+    padding: 0 10px;
+    background: var(--bgcolor);
+    border-left: 1px solid var(--bordercolor);
+    border-right: 1px solid var(--bordercolor);
+    letter-spacing: 0.2em;
+}
+
+
+h3 {
+    text-align: center;
+    margin: 10px;
+    font-size: 1.1rem;
+    margin-right: -2%;
+    margin-top: 8%;
+}
+
+div.last {
     display: flex;
+    justify-items: center;
     flex-direction: row;
-   
-    
-}
-.error_msg
-{
-    color:white;
-    font-size: large;
-}
+    margin-bottom: -8%;
+} */
