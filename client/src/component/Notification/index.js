@@ -2,10 +2,11 @@ import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
-
+import { useEffect } from 'react';
 
 const Notification = (props) => {
-    const sucess=(text)=>{toast.success(text
+  
+    const success=(text)=>{toast.success(text
     ,{position: "top-right",
     autoClose: 5000,
     hideProgressBar: false,
@@ -23,7 +24,7 @@ const Notification = (props) => {
         draggable: true,
         progress: undefined,
         theme: "light",});}
-        const promise=(text)=>{toast.promise({
+        const promise=()=>{toast.promise(props.pro,{
        pending:"pending",
         success:"success",
         error:"rejected"
@@ -36,22 +37,27 @@ const Notification = (props) => {
             progress: undefined,
             theme: "light",});}
 
-    const getnotify=(props)=>{
+            useEffect(() => {
+              getnotify();
+              console.log('i fire once');
+            },[]);
 
-        // if({props.sucess})
-        //  sucess({props.text});
-        // if({props.error})
-        //   error({props.text});
-        // if({props.promise})
-        //   promise({props.text});
-
-
-    }
+          const getnotify= function () {
+             
+            if(props.success)
+             success(props.text);
+                
+            if(props.promise)
+            promise();   
+            if(props.error)
+             error(props.text);
+          };
+           
 
   return (
     <div>
      
-    {(props.sucess || props.error ||props.promise) ? (getnotify):(getnotify)}
+  
         <ToastContainer />
     </div>
   )

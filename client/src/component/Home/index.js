@@ -9,10 +9,11 @@ import Credit from "../Credit";
 import Notification from "../Notification";
 
 const Home = () => {
+  const textnoti=`Sucessfully login `+JSON.parse(localStorage.getItem("loginuser")).name 
   
   return (
     <div>
-     <Notification sucess={true} text="loggedin" error={false} promise={false} />
+     <Notification success text={textnoti}error={false} promise={false} />
     
     <Navbar />
 

@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { animated, useSpring } from "react-spring";
 import axios from "axios";
 import Select from "react-select";
-
+import Notification from "../Notification";
 // import Drop from '../Drop';
 
 const Credit = () => {
@@ -65,8 +65,11 @@ const Credit = () => {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:8080/data").then(
+    axios.get("http://localhost:8000/data").then(
       (res) => {
+       
+        <Notification success={false} text="hello"error={false} promise />
+    
         //const f=res.json();
         // setPost([...post,{[res.data.name]}]);
         // console.log(res.data);
