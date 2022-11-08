@@ -70,7 +70,7 @@ router.post("/login", async (req, res) => {
           token: token,
           loginuser: userlogin,
         };
-      //  console.log(obj);
+        //  console.log(obj);
         res.status(201).json(obj);
         // navigate("/");
       }
@@ -89,7 +89,7 @@ router.post("/login", async (req, res) => {
 
 router.get("/data", async (req, res) => {
   const objectdata = await User.find({});
- // console.log(objectdata);
+  // console.log(objectdata);
 
   //  console.log(objk);
   //return objectdata;
@@ -100,15 +100,24 @@ router.post("/money", async (req, res) => {
   loginuser = JSON.parse(loginuser);
   const r = loginuser.email;
   console.log("hello now:---");
+  const newDate = new Date(date);
+  const month = newDate.getMonth() + 1;
   //console.log(r);
   // console.log(description);
   const d = await User.findOne({ email: r });
-  const a=await User.findOne({name:namec});
+  const a = await User.findOne({ name: namec });
   // console.log(amount);
   // console.log(namec);
   // console.log(loginuser);
   //console.log(d);
-  const user = await d.enterAmountCredit(amount, namec, d, description, date);
+  const user = await d.enterAmountCredit(
+    amount,
+    namec,
+    d,
+    description,
+    newDate,
+    month
+  );
 
   const nodemailer = require("nodemailer");
 
@@ -119,8 +128,8 @@ router.post("/money", async (req, res) => {
       pass: "react#mp52",
     },
   });
-const subject="app name"
-const textbody=`Dear {}`
+  const subject = "app name";
+  const textbody = `Dear {}`;
   const options = {
     from: "reactmp@outlook.com",
     to: a.email,

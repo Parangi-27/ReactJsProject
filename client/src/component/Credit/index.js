@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles.module.css";
 import Button from "../Button/button";
-
+import Form from "../Form";
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { animated, useSpring } from "react-spring";
@@ -93,7 +93,7 @@ const Credit = () => {
 
   return (
     <div>
-    
+    <Form />
       <div className={styles.contmain}>
         <animated.form onSubmit={handleSubmit}>
           <span className={styles.color}>Amount</span>
@@ -146,7 +146,7 @@ const Credit = () => {
 		 {loguser.h.map((add,i)=>(
 			<div>
 			<li value={add.name} key={i}>{add.name}</li>
-			<li value={add.amount} key={i+1}>{add.amount} {add.description}</li>
+			<li value={add.amount} key={i+1}>{add.amount} {add.description} </li>
 			</div>
 		   ))}  
       </div>

@@ -1,0 +1,263 @@
+body {
+    background: var(--bgcolor);
+    overflow-x: hidden;
+}
+
+.signup_container {
+    width: 100%;
+    height: 20%;
+    margin: auto;
+    min-width: 300px;
+    position: relative;
+    min-height: 300px;
+    display: flex;
+    left: 10%;
+    flex-direction: row;
+    float: right;
+}
+.image {
+    margin-top: 5%;
+    margin-right: 10%;
+    width: 33%;
+    float: left;
+    height: 150%;
+    border-radius: 2%;
+}
+.box {
+    margin: 1rem auto;
+    background-color: white;
+    height: 675px;
+    min-width: 650px;
+    max-width: 60%;
+    box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.4);
+    border-radius: 2%;
+    /* left: 9%; */
+    /* align-items: center;
+    justify-content: center; */
+    /* margin-top: 22%;
+    margin-right: 5%;
+    margin-left: 5%; */
+}
+
+.textlogin {
+    left: 35%;
+    font-weight: 900;
+    letter-spacing: 3px;
+    font-size: 2.5rem;
+    padding: 28px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.st {
+    color: blueviolet;
+    display: block;
+}
+
+.inputBox {
+    position: relative;
+    /* left: 4vh; */
+}
+
+.inputBox input {
+    position: relative;
+    left: -3%;
+    right: 3%;
+    width: 250px;
+    max-width: 100%;
+    margin: 3%;
+    padding:6px;
+    border: 1px solid Orgba(255, 255, 255, 0.25);
+    background: var(--bgcolor);
+    border-radius: 5px;
+    outline: none;
+    color: black;
+    font-size: 1em;
+    transition: 0s;
+}
+
+h3 {
+    /* text-align: center; */
+    margin: 10px;
+    font-size: 1.1rem;
+    position: relative;
+    left: 8%;
+}
+
+/* .inputBox span {
+    position: relative;
+    left: -8%;
+    margin-left: -55%;
+    padding: 2%;
+    pointer-events: none;
+    font-size: 1em;
+    color: grey;
+    text-transform: uppercase;
+    transition: 0s;
+} */
+
+.inputBox input:active {
+    background-color: antiquewhite;
+}
+
+.inputBox input:valid~span,
+.inputBox input:focus~span {
+    left: -15%;
+    margin-left: 22%;
+    padding: 0.5rem 0.5rem;
+    font-size: 0.65em;
+    position: relative;
+   
+    /* margin-top: -2%; */
+    /* padding: 2%; */
+    /* margin-top: -5%;
+    margin-left: -100%;     */
+    transform: translateX(2%) translateY(-3%);
+    /* background: var(--bgcolor); */
+    /* border-left: 1px solid var(--bordercolor); */
+    /* border-right: 1px solid var(--bordercolor); */
+    letter-spacing: 0.2em;
+}
+
+div.last {
+    justify-items: center;
+}
+textarea{
+    resize: none;
+    position: relative;
+    left: -3%;
+    right: 3%;
+    width: 250px;
+    max-width: 100%;
+    margin: 3%;
+    padding:6px;
+    border: 1px solid Orgba(255, 255, 255, 0.25);
+    background: var(--bgcolor);
+    border-radius: 5px;
+    outline: none;
+    color: black;
+    font-size: 1em;
+    transition: 0s;
+}
+.option1{
+    /* width: 12rem;
+    height: 2rem; */
+    position: relative;
+    left: -3%;
+    right: 3%;
+    width: 265px;
+    max-width: 100%;
+    margin: 3%;
+    padding:6px;
+    border: 1px solid Orgba(255, 255, 255, 0.25);
+    background: var(--bgcolor);
+    border-radius: 5px;
+    outline: none;
+    color: black;
+    font-size: 1em;
+    transition: 0s;
+}
+
+/* .login_inner {
+    position: relative;
+    width: 25%;
+    height: 30%;
+    min-height: 250px;
+    min-width: 300px;
+    margin: 4rem auto;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bgcolor);
+    color: var(--textcolor);
+    padding: 4%;
+    border-radius: 6%;
+    transition: 0.5s;
+    animation-duration: 10s; 
+    box-shadow: 10px 10px 11px var(--bordercolor);
+    border-top: 0.25px groove var(--bordercolor);
+    border-left: 0.25px groove var(--bordercolor); 
+
+}
+
+.textlogin {
+    margin-top: -3%;
+    position: relative;
+    left: 32%;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: var(--bordercolor);
+     font-style: italic; 
+    letter-spacing: 3px;
+    font-size: 2rem;
+}
+
+
+.inputBox {
+    position: relative;
+}
+
+.inputBox input {
+    position: relative;
+    width: 250px;
+    max-width: 100%;
+    padding: 10px;
+    border: 1px solid Orgba(255, 255, 255, 0.25);
+    background: var(--bgcolor);
+    border-radius: 5px;
+    margin: 6%;
+    outline: none;
+    color: white;
+    font-size: 1em;
+    transition: 0s;
+}
+
+.inputBox span {
+    position: relative;
+    left: 2%;
+    margin-left: -92%;
+    padding: 2%;
+    pointer-events: none;
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.191);
+    text-transform: uppercase;
+    transition: 0s;
+} */
+/* 
+.inputBox input:valid~span,
+.inputBox input:focus~span {
+    color: var(--bordercolor);
+    left: -4%;
+    margin-left: 10%; */
+/* position: relative; */
+/* top: -8%; */
+/* margin-top: 4%; */
+/* padding: 2%; */
+/* 
+    margin-top: -5%;
+    margin-left: -100%; 
+    /* padding: 2%; */
+/* transform: translateX(2%) translateY(-3%);   */
+/* font-size: 0.65em;
+    padding: 0 10px;
+    background: var(--bgcolor);
+    border-left: 1px solid var(--bordercolor);
+    border-right: 1px solid var(--bordercolor);
+    letter-spacing: 0.2em;
+}
+
+
+h3 {
+    text-align: center;
+    margin: 10px;
+    font-size: 1.1rem;
+    margin-right: -2%;
+    margin-top: 8%;
+}
+
+div.last {
+    display: flex;
+    justify-items: center;
+    flex-direction: row;
+    margin-bottom: -8%;
+} */

@@ -33,24 +33,30 @@ const userschema = new mongoose.Schema({
       description: {
         type: String,
       },
-      date:{
+      date: {
         type: Date,
-      }
+      },
+      month: {
+        type: Number,
+      },
     },
-],
-debit: [
+  ],
+  debit: [
     {
-        name: {
-            type: String,
-            required: true,
-        },
-        amount: {
-            type: Number,
-            required: true,
-        },
-        description: {
-          type: String,
-        },
+      name: {
+        type: String,
+        required: true,
+      },
+      amount: {
+        type: Number,
+        required: true,
+      },
+      description: {
+        type: String,
+      },
+      month: {
+        type: Number,
+      },
     },
   ],
 
@@ -88,17 +94,36 @@ userschema.methods.generateAuthToken = async function () {
   }
 };
 
-userschema.methods.enterAmountCredit = async function (amountq, namec, d, description, date) {
+userschema.methods.enterAmountCredit = async function (
+  amountq,
+  namec,
+  d,
+  description,
+  date,
+  month
+) {
   // console.log(amountq)
   // console.log(namec);
   //d is for loginuser
   try {
     //result is dropdown element
-    this.credit = this.credit.concat({ name: namec.result, amount: amountq, description: description, date: date});
+    this.credit = this.credit.concat({
+      name: namec.result,
+      amount: amountq,
+      description: description,
+      date: date,
+      month: month,
+    });
     const q = await User.findOne({ name: namec.result });
     console.log(q);
     console.log(description);
-    q.debit = q.debit.concat({ name: d.name, amount: amountq, description: description, date:date });
+    q.debit = q.debit.concat({
+      name: d.name,
+      amount: amountq,
+      description: description,
+      date: date,
+      month: month,
+    });
     await q.save();
     await this.save();
     return "success";
