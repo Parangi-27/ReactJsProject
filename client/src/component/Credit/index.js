@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles.module.css";
 import Button from "../Button/button";
-import Navbar from "../Navbar";
+
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { animated, useSpring } from "react-spring";
@@ -14,7 +14,7 @@ const Credit = () => {
   var x = localStorage.getItem("loginuser");
   x = JSON.parse(x);
   x = x.name;
-  var y = x._id;
+  
 
   //added date and description
   const [Data, setData] = useState({ amount: "", date: "",  description: ""});
@@ -61,11 +61,11 @@ const Credit = () => {
     setvalue(e.target.value);
   };
   const fetchcurruser = () => {
-    return post.g.find((u) => u._id === y);
+    return post.g.find((u) => u.name === x);
   };
 
   useEffect(() => {
-    axios.get("http://localhost:8000/data").then(
+    axios.get("http://localhost:8080/data").then(
       (res) => {
         //const f=res.json();
         // setPost([...post,{[res.data.name]}]);
@@ -74,9 +74,10 @@ const Credit = () => {
         setPost({ g: res.data });
         let s = fetchcurruser();
         // console.log(s);
-        setLoguser({ h: s });
+        setLoguser({ h: s.credit });
         // console.log(res.data);
-		console.log(res.description);
+      //  console.log(loguser);
+	//	console.log(res.description);
 		// console.log(res.amount);
         // console.log(post);
       },
@@ -84,12 +85,12 @@ const Credit = () => {
         console.log("error in fetching");
       }
     );
-  },[]);
+  });
   //
 
   return (
     <div>
-      <Navbar />
+    
       <div className={styles.contmain}>
         <animated.form onSubmit={handleSubmit}>
           <span className={styles.color}>Amount</span>
@@ -138,13 +139,13 @@ const Credit = () => {
           <Button name="Credit" />
         </animated.form>
        
-        {/* 
-		 {loguser.h.credit.map((add,i)=>(
+        
+		 {loguser.h.map((add,i)=>(
 			<div>
 			<li value={add.name} key={i}>{add.name}</li>
-			<li value={add.amount} key={i}>{add.amount}</li>
+			<li value={add.amount} key={i+1}>{add.amount} {add.description}</li>
 			</div>
-		   ))}   */}
+		   ))}  
       </div>
     </div>
   );

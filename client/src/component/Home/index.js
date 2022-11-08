@@ -6,13 +6,15 @@ import { Link } from "react-router-dom";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
 import Credit from "../Credit";
-
+import Notification from "../Notification";
 
 const Home = () => {
   
   return (
     <div>
-    {/* <Navbar /> */}
+     <Notification sucess={true} text="loggedin" error={false} promise={false} />
+    
+    <Navbar />
 
 
       <Credit/>

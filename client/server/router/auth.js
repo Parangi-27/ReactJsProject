@@ -103,6 +103,7 @@ router.post("/money", async (req, res) => {
   console.log(r);
   // console.log(description);
   const d = await User.findOne({ email: r });
+  const a=await User.findOne({name:namec});
   // console.log(amount);
   // console.log(namec);
   // console.log(loginuser);
@@ -118,11 +119,12 @@ router.post("/money", async (req, res) => {
       pass: "react#mp52",
     },
   });
-
+const subject="app name"
+const textbody=`Dear {}`
   const options = {
     from: "reactmp@outlook.com",
-    to: r,
-    subject: "Heyy!!!!!",
+    to: a.email,
+    subject: {},
     text: `It's absoulety working!!!`,
   };
 

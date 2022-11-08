@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { animated, config, useSpring } from "react-spring";
 import gif from "../loaderlogo.gif";
+import Notification from "../Notification";
 //import { Link, useNavigate,NavLink } from "react-router-dom";
 
 const Login = (props) => {
@@ -48,6 +49,7 @@ const Login = (props) => {
       if (y.token && y) {
         console.log("logged in");
         // navigate("/");
+       
         window.location.href = "/";
       } else {
         console.log("error in  respsone or token is not genearte properly");
@@ -77,7 +79,7 @@ const Login = (props) => {
   return (
     <>
       {loading ? (
-        <animated.img src={gif} alt="load"></animated.img>
+        <center><img src={gif} alt="load"></img></center>
       ) : (
         <animated.div style={styleprops} className={styles.box}>
           <div className={styles.login_container}>
