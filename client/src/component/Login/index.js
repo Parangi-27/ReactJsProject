@@ -44,6 +44,7 @@ const Login = (props) => {
       const y = await res.json();
       localStorage.setItem("jtwtoken", JSON.stringify(y.token));
       localStorage.setItem("loginuser", JSON.stringify(y.loginuser));
+      localStorage.setItem("bool",true);
       //  setLogin("jwtokenlocal",y.token);
 
       if (y.token && y) {

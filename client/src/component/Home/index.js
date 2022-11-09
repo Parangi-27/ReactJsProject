@@ -16,19 +16,22 @@ import Notification from "../Notification";
 const Home = () => {
   const textnoti=`Sucessfully login `+JSON.parse(localStorage.getItem("loginuser")).name ;
   const [loading, setload] = useState(true);
+  const [bool, setbool] = useState();
   useEffect(() => {
     setTimeout(() => {
       setload(false);
     }, 4000);
   }, []);
+  var  boo =localStorage.getItem("bool");
+     setbool(boo);
   return (
     
     <div>
-    {loading ? (
-        <center><img src={gif} alt="load"></img></center>
+    {loading  ? (
+           <center><img src={gif} alt="load"></img></center>
       ) : (
         <div>
-     <Notification success text={textnoti}error={false} promise={false} />
+ <Notification success text={textnoti}error={false} promise={false} />
     
     <Navbar />
 

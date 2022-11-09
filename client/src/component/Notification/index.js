@@ -1,5 +1,5 @@
 import React from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast, Flip } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from 'react';
@@ -22,6 +22,7 @@ const Notification = (props) => {
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
+        transition:Flip,
         progress: undefined,
         theme: "light",});}
         const promise=()=>{toast.promise(props.pro,{
@@ -34,6 +35,7 @@ const Notification = (props) => {
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
+            transition:Flip,
             progress: undefined,
             theme: "light",});}
 
@@ -51,14 +53,13 @@ const Notification = (props) => {
             promise();   
             if(props.error)
              error(props.text);
-          };
+          }
            
-
+          localStorage.setItem("bool",false)
   return (
+ 
     <div>
-     
-  
-        <ToastContainer />
+          <ToastContainer />
     </div>
   )
 }
