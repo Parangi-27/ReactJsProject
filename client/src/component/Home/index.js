@@ -22,8 +22,9 @@ const Home = () => {
       setload(false);
     }, 4000);
   }, []);
-  var  boo =localStorage.getItem("bool");
-     setbool(boo);
+
+  // var  boo =localStorage.getItem("bool");
+  // return  setbool(boo);
   return (
     
     <div>

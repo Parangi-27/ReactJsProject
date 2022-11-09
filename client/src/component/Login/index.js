@@ -12,7 +12,7 @@ import Notification from "../Notification";
 const Login = (props) => {
   const [Data, setData] = useState({ email: "", password: "" });
   const [loading, setload] = useState(true);
-  const [error, setError] = useState("");
+  const [Error, setError] = useState({});
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...Data, [input.name]: input.value });
   };
@@ -42,6 +42,9 @@ const Login = (props) => {
       //	const res= await axios.post("/login", Data);
       //  res.json().then(data)=>{}
       const y = await res.json();
+      console.log(y);
+      setError({y});
+      console.log(Error);
       localStorage.setItem("jtwtoken", JSON.stringify(y.token));
       localStorage.setItem("loginuser", JSON.stringify(y.loginuser));
       localStorage.setItem("bool",true);
@@ -53,7 +56,7 @@ const Login = (props) => {
        
         window.location.href = "/";
       } else {
-        console.log("error in  respsone or token is not genearte properly");
+      console.log("error in genrating token");
       }
     } catch (error) {
       console.log(error);
@@ -82,7 +85,10 @@ const Login = (props) => {
       {loading ? (
         <center><img src={gif} alt="load"></img></center>
       ) : (
+        
         <animated.div style={styleprops} className={styles.box}>
+            {/* {Error &&  <Notification success={false} text={Error.error} error promise={false} />} */}
+
           <div className={styles.login_container}>
             <img src={login} alt="img" className={styles.image}></img>
             <form style={styleprops} onSubmit={handleSubmit}>
@@ -113,8 +119,7 @@ const Login = (props) => {
                   />
                   <span>Password</span>
                   <br></br>
-                  {error && <div className={styles.error_msg}>{error}</div>}
-
+              
                   <Button name="Login" />
                   <div className={styles.last}>
                     <h3>Don't have an Account?</h3>
