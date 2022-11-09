@@ -5,27 +5,41 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
-import Credit from "../Credit";
+import Credit from "../Credit"; 
+import gif from "../loaderlogo.gif";
+import { useState, useEffect } from "react";
+
+import Form from "../Form";
 import Notification from "../Notification";
 
+
 const Home = () => {
-  const textnoti=`Sucessfully login `+JSON.parse(localStorage.getItem("loginuser")).name 
-  
+  const textnoti=`Sucessfully login `+JSON.parse(localStorage.getItem("loginuser")).name ;
+  const [loading, setload] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setload(false);
+    }, 4000);
+  }, []);
   return (
+    
     <div>
+    {loading ? (
+        <center><img src={gif} alt="load"></img></center>
+      ) : (
+        <div>
      <Notification success text={textnoti}error={false} promise={false} />
     
     <Navbar />
 
+    <Form /></div>
 
-      <Credit/>
-  
-    {/* <Footer /> */}
-    </div>
+       )} </div>
   );
 };
   
 export default Home;
+
 
 
 

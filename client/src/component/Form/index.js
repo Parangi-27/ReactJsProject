@@ -61,34 +61,32 @@ const Form = (props) => {
   const changevalue = (e) => {
     setvalue(e.target.value);
   };
-  const fetchcurruser = () => {
-    return post.g.find((u) => u.name === x);
-  };
+  // const fetchcurruser = () => {
+  //   return post.g.find((u) => u.name === x);
+  // };
 
   useEffect(() => {
-    axios.get("http://localhost:8000/data").then(
-      (res) => {
-        <Notification success={false} text="hello" error={false} promise />;
-
+    const fetchdata= async()=>{
+      try{
+      const resu= await axios.get("http://localhost:8000/data");
+      setPost({ g: resu.data });
+      }
+      catch(error)
+      {
+        console.log(error);
+      }
+    }
+  
+     fetchdata();
         //const f=res.json();
         // setPost([...post,{[res.data.name]}]);
         // console.log(res.data);
         // console.log(post);
-        setPost({ g: res.data });
-        let s = fetchcurruser();
-        // console.log(s);
-        setLoguser({ h: s.credit });
-        // console.log(res.data);
-        //  console.log(loguser);
-        //	console.log(res.description);
-        // console.log(res.amount);
-        // console.log(post);
-      },
-      (error) => {
-        console.log("error in fetching");
-      }
-    );
-  });
+
+        // let s = fetchcurruser();
+          // console.log(s);
+      
+  },[]);
 
   const styleprops = useSpring({
     from: {
@@ -107,11 +105,11 @@ const Form = (props) => {
               &lt;Credit <span className={styles.st}>/</span>&gt;
             </h1>
         <div className={styles.signup_container}>
-        <img src={girl} alt="img" className={styles.image}></img>
+        <img src={girl} alt="img" width="600" height="900" className={styles.image}></img>
           <animated.form style={styleprops} onSubmit={handleSubmit}>
             <br/><br/>
-            <span>Amount</span>
             <div className={styles.inputBox}>
+            <span>Amount</span>
               <input
                 type="number"
                 name="amount"
@@ -128,15 +126,15 @@ const Form = (props) => {
                 onChange={changevalue}
                 className={styles.option1}
               >
-                <option value="choose">Choose Name</option>
+                <option value="choose" disabled>Choose Name</option>
                 {post.g.map((add, i) => (
-                  <option value={add.name} key={i}>
+                   <option value={add.name} key={i}>
                     {add.name}
                   </option>
                 ))}
               </select>
               <br /><br/>
-              <span>Date</span>
+              <span>Date</span><br/>
               <input
                 type="date"
                 name="date"
@@ -163,9 +161,9 @@ const Form = (props) => {
                 <div className={styles.error_msg}>{error.error1}</div>
               )}
               <div className={styles.last}>
-                <Link to="/login">
+                {/* <Link to="/login"> */}
                   <Button name="Credit" />
-                </Link>
+                {/* </Link> */}
               </div>
             </div>
           </animated.form>

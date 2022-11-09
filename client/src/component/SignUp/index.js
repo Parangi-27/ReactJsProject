@@ -2,12 +2,13 @@ import React from "react";
 import styles from "./styles.module.css";
 import Button from "../Button/button";
 import login from "./login.png";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { animated, useSpring } from "react-spring";
 import { Link } from "react-router-dom";
 import gif from "../loaderlogo.gif";
 
 const SignUp = (props) => {
+  const [loading, setload] = useState(true);
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -54,14 +55,25 @@ const SignUp = (props) => {
   const styleprops = useSpring({
     from: {
       opacity: 0,
-      transform: "translate(-4000px,-1000px)",
+      transform: "translate(4000px,-4000px)",
+      rotateZ: 0,
     },
-    opacity: 1,
-    transform: "translate(0,0)",
+    to: { opacity: 1, transform: "translate(0,0)", rotateZ:360 },
+    delay: 3500,
+    config: {
+      duration: 1300,
+    },
   });
-
+  useEffect(() => {
+    setTimeout(() => {
+      setload(false);
+    }, 4000);
+  }, []);
   return (
     <>
+   {loading ? (
+        <center><img src={gif} alt="load"></img></center>
+      ) : (
       <animated.div style={styleprops} className={styles.box}>
         <div className={styles.signup_container}>
           <img src={login} alt="img" className={styles.image}></img>
@@ -135,7 +147,7 @@ const SignUp = (props) => {
             </div>
           </animated.form>
         </div>
-      </animated.div>
+      </animated.div>)}
     </>
   );
 };

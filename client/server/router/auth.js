@@ -105,7 +105,7 @@ router.post("/money", async (req, res) => {
   //console.log(r);
   // console.log(description);
   const d = await User.findOne({ email: r });
-  const a = await User.findOne({ name: namec });
+  const a = await User.findOne({ name: namec.result });
   // console.log(amount);
   // console.log(namec);
   // console.log(loginuser);

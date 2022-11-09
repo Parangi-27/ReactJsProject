@@ -54,6 +54,9 @@ const userschema = new mongoose.Schema({
       description: {
         type: String,
       },
+      date: {
+        type: Date,
+      },
       month: {
         type: Number,
       },
@@ -116,7 +119,7 @@ userschema.methods.enterAmountCredit = async function (
     });
     const q = await User.findOne({ name: namec.result });
     console.log(q);
-    console.log(description);
+    //console.log(description);
     q.debit = q.debit.concat({
       name: d.name,
       amount: amountq,
@@ -127,7 +130,7 @@ userschema.methods.enterAmountCredit = async function (
     await q.save();
     await this.save();
     return "success";
-    console.log(this);
+  //  console.log(this);
   } catch (err) {
     console.log(err);
   }

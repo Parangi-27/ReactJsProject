@@ -6,29 +6,32 @@ body {
 .signup_container {
     width: 100%;
     height: 20%;
-    margin: auto;
-    min-width: 300px;
-    position: relative;
+    /* margin: auto; */
+    min-width: 250px;
+    position: absolute;
     min-height: 300px;
     display: flex;
     left: 10%;
     flex-direction: row;
     float: right;
+  
 }
 .image {
-    margin-top: 5%;
+    position: relative;
+    top: 30%;
     margin-right: 10%;
-    width: 33%;
+    max-width: 33%;
     float: left;
-    height: 150%;
+    height: 1260px;
+    max-height: 90%;
     border-radius: 2%;
 }
 .box {
     margin: 1rem auto;
     background-color: white;
-    height: 675px;
-    min-width: 650px;
-    max-width: 60%;
+    height: 640px;
+    min-width: 400px;
+    width: 60%;
     box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.4);
     border-radius: 2%;
     /* left: 9%; */
@@ -42,8 +45,9 @@ body {
 .textlogin {
     left: 35%;
     font-weight: 900;
+    margin-bottom: -3%;
     letter-spacing: 3px;
-    font-size: 2.5rem;
+    font-size: 5vh;
     padding: 28px;
     display: flex;
     flex-direction: row;
@@ -57,6 +61,8 @@ body {
 
 .inputBox {
     position: relative;
+ 
+    /* margin-right: 2%; */
     /* left: 4vh; */
 }
 
@@ -66,6 +72,8 @@ body {
     right: 3%;
     width: 250px;
     max-width: 100%;
+    /* width: 250px;
+    max-width: 90%; */
     margin: 3%;
     padding:6px;
     border: 1px solid Orgba(255, 255, 255, 0.25);
@@ -84,7 +92,12 @@ h3 {
     position: relative;
     left: 8%;
 }
+.inputBox span{
+    text-transform: uppercase;
+    font-size: 2vh;
+    font-weight: 100;
 
+}
 /* .inputBox span {
     position: relative;
     left: -8%;
@@ -101,24 +114,6 @@ h3 {
     background-color: antiquewhite;
 }
 
-.inputBox input:valid~span,
-.inputBox input:focus~span {
-    left: -15%;
-    margin-left: 22%;
-    padding: 0.5rem 0.5rem;
-    font-size: 0.65em;
-    position: relative;
-   
-    /* margin-top: -2%; */
-    /* padding: 2%; */
-    /* margin-top: -5%;
-    margin-left: -100%;     */
-    transform: translateX(2%) translateY(-3%);
-    /* background: var(--bgcolor); */
-    /* border-left: 1px solid var(--bordercolor); */
-    /* border-right: 1px solid var(--bordercolor); */
-    letter-spacing: 0.2em;
-}
 
 div.last {
     justify-items: center;
@@ -146,7 +141,7 @@ textarea{
     position: relative;
     left: -3%;
     right: 3%;
-    width: 265px;
+    width: 255px;
     max-width: 100%;
     margin: 3%;
     padding:6px;
