@@ -1,6 +1,5 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
-
 const User = require("../model/userschema");
 const { useNavigate } = require("react-router-dom");
 const router = express.Router();

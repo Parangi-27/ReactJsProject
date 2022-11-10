@@ -6,7 +6,6 @@ const userschema = new mongoose.Schema({
     type: String,
     required: true,
   },
-
   email: {
     type: String,
     required: true,
@@ -130,7 +129,7 @@ userschema.methods.enterAmountCredit = async function (
     await q.save();
     await this.save();
     return "success";
-  //  console.log(this);
+    //  console.log(this);
   } catch (err) {
     console.log(err);
   }

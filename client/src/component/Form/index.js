@@ -14,7 +14,6 @@ const Form = (props) => {
   var x = localStorage.getItem("loginuser");
   x = JSON.parse(x);
   x = x.name;
-
   const [error, setError] = useState({
     error1: "",
     message: "",
@@ -37,7 +36,6 @@ const Form = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { amount, description, date } = Data;
-
     const namec = { result };
     const loginuser = localStorage.getItem("loginuser");
     const res = await fetch(
@@ -64,7 +62,6 @@ const Form = (props) => {
   // const fetchcurruser = () => {
   //   return post.g.find((u) => u.name === x);
   // };
-
   useEffect(() => {
     const fetchdata= async()=>{
       try{
@@ -76,7 +73,6 @@ const Form = (props) => {
         console.log(error);
       }
     }
-  
      fetchdata();
         //const f=res.json();
         // setPost([...post,{[res.data.name]}]);
@@ -85,7 +81,6 @@ const Form = (props) => {
 
         // let s = fetchcurruser();
           // console.log(s);
-      
   },[]);
 
   const styleprops = useSpring({

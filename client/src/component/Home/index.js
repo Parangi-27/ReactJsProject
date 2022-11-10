@@ -1,20 +1,21 @@
 import React from "react";
-// importing Link from react-router-dom to navigate to 
+// importing Link from react-router-dom to navigate to
 // different end points.
 
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
-import Credit from "../Credit"; 
+import Credit from "../Credit";
+import Userpro from "../Userpro";
 import gif from "../loaderlogo.gif";
 import { useState, useEffect } from "react";
 
 import Form from "../Form";
 import Notification from "../Notification";
 
-
 const Home = () => {
-  const textnoti=`Sucessfully login `+JSON.parse(localStorage.getItem("loginuser")).name ;
+  const textnoti =
+    `Sucessfully login ` + JSON.parse(localStorage.getItem("loginuser")).name;
   const [loading, setload] = useState(true);
   const [bool, setbool] = useState();
   useEffect(() => {
@@ -26,27 +27,27 @@ const Home = () => {
   // var  boo =localStorage.getItem("bool");
   // return  setbool(boo);
   return (
-    
     <div>
-    {loading  ? (
-           <center><img src={gif} alt="load"></img></center>
+      {loading ? (
+        <center>
+          <img src={gif} alt="load"></img>
+        </center>
       ) : (
         <div>
- <Notification success text={textnoti}error={false} promise={false} />
-    
-    <Navbar />
+          <Notification success text={textnoti} error={false} promise={false} />
 
-    <Form /></div>
-
-       )} </div>
+          <Navbar />
+          <Userpro />
+          {/* <Credit /> */}
+          {/* <Form /> */}
+          <Footer/>
+        </div>
+      )}{" "}
+    </div>
   );
 };
-  
+
 export default Home;
-
-
-
-
 
 // <h1>Home Page</h1>
 // <br />

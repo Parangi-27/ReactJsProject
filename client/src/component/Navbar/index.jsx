@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavLink} from 'react-router-dom';
+import Credit from "../Credit"; 
 import "./navbar.css";
 // import "bootstrap-icons/font/bootstrap-icons.css";
 import 'font-awesome/css/font-awesome.min.css';
@@ -23,23 +24,23 @@ function Navbar() {
               <li className="nav-item">
                 <NavLink
                   exact
-                  to="/"
+                  to="/Credit"
                   activeClassName="active"
                   className="nav-links"
                   onClick={click ? handleClick : null}
                 >
-                  Parties
+                  Credit
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink
                   exact
-                  to="/about"
+                  to="/money"
                   activeClassName="active"
                   className="nav-links"
                   onClick={click ? handleClick : null}
                 >
-                  Items
+                  Money
                 </NavLink>
               </li>
               <li className="nav-item">
@@ -50,7 +51,7 @@ function Navbar() {
                   className="nav-links"
                   onClick={click ? handleClick : null}
                 >
-                  Money
+                  Other
                 </NavLink>
               </li>
               <li className="nav-item">
