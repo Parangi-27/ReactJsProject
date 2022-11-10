@@ -19,9 +19,7 @@ const Form = (props) => {
     message: "",
   });
   const [Data, setData] = useState({ amount: "", date: "", description: "" });
-  const [loguser, setLoguser] = useState({
-    h: [],
-  });
+  
   const [loading, setload] = useState(true);
   const [post, setPost] = useState({
     g: [],
@@ -62,11 +60,21 @@ const Form = (props) => {
   // const fetchcurruser = () => {
   //   return post.g.find((u) => u.name === x);
   // };
+
+  
   useEffect(() => {
     const fetchdata= async()=>{
       try{
       const resu= await axios.get("http://localhost:8000/data");
-      setPost({ g: resu.data });
+  //    var index= resu.data.find(finduserlog);
+  //  console.log(index);
+  //   await delete resu.data[t];
+  const people = resu.data.filter((item) => item.name !== x);
+      // resu.data.removeByAttr(resu.data, 'name', x);
+  //  console.log(filteredPeople);
+      setPost({ g: people });
+    //  console.log(post);
+  
       }
       catch(error)
       {

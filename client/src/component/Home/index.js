@@ -12,10 +12,10 @@ import { useState, useEffect } from "react";
 
 import Form from "../Form";
 import Notification from "../Notification";
+import Listinfo from "../Listinfo";
 
 const Home = () => {
-  const textnoti =
-    `Sucessfully login ` + JSON.parse(localStorage.getItem("loginuser")).name;
+  const textnoti =`Sucessfully login ` + JSON.parse(localStorage.getItem("loginuser")).name;
   const [loading, setload] = useState(true);
   const [bool, setbool] = useState();
   useEffect(() => {
@@ -38,9 +38,11 @@ const Home = () => {
 
           <Navbar />
           <Userpro />
+          <Listinfo />
           {/* <Credit /> */}
-          {/* <Form /> */}
+          <Form />
           <Footer/>
+
         </div>
       )}{" "}
     </div>

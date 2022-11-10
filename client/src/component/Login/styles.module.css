@@ -1,4 +1,8 @@
 * {
+    
+    --card-bg: red;
+    --txt-color: #fff;
+
     --bgcolor: white;
     --textcolor: black;
     --bordercolor: #ffbf00;

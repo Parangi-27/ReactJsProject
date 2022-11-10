@@ -75,9 +75,7 @@ const Credit = () => {
         // console.log(res.data);
         // console.log(post);
         setPost({ g: res.data });
-        let s = fetchcurruser();
-        // console.log(s);
-        setLoguser({ h: s.credit });
+      
         // console.log(res.data);
       //  console.log(loguser);
 	//	console.log(res.description);
