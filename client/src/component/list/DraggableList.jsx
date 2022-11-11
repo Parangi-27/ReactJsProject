@@ -43,12 +43,9 @@ const DraggableList = props => {
         }
     }
     useEffect(() => {
-        const fetchdat= async()=>{
+          setdata({g: props.data})
                //console.log("fecthingdata");
-        setdata({g: props.data})
-        }
-       fetchdat();
-      },[]);
+      });
     
     return (
         <ul className="draggable-list">

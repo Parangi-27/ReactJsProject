@@ -19,55 +19,31 @@ const userschema = new mongoose.Schema({
     required: true,
   },
 
-  graphc:[{
-    
-       jan:{
-        type:Number
-       },
-       feb:{
-        type:Number
-       },
-       mar:{
-        type:Number
-       },
-       april:{
-        type:Number
-       },
-       may:{
-        type:Number
-       },
-       june:{
-        type:Number
-       },
-       july:{
-        type:Number
-       },
-       aug:{
-        type:Number
-       },
-       spet:{
-        type:Number
-       },
-       oct:{
-        type:Number
-       },
-       nov:{
-        type:Number
+  graph:[
+    {
+      name: {
+        type: String,
+        
       },
-      dec:{
-         type:Number
-        }
+      camount: {
+        type: Number,
+  
       },
-   ],
+      damount: {
+        type: Number,
+  
+      },
+    }
+  ],
   credit: [
     {
       name: {
         type: String,
-        required: true,
+       
       },
       amount: {
         type: Number,
-        required: true,
+    
       },
       description: {
         type: String,
@@ -85,11 +61,11 @@ const userschema = new mongoose.Schema({
     {
       name: {
         type: String,
-        required: true,
+ 
       },
       amount: {
         type: Number,
-        required: true,
+      
       },
       description: {
         type: String,
@@ -158,11 +134,23 @@ userschema.methods.enterAmountCredit = async function (
       date: date,
       month: month,
     });
-   /// this.graphc.nov= 0;
+  
+  const arr=["jan","feb","mar","april","may","june","july","aug","spet","oct","nov","dec"];
+// this.graphc =this.graphc[0].jan +amountq;
+//console.log(amountq +this.graphc[month-1].amount)
+// amount
+var s=parseInt(this.graph[month-1].camount);
+ s+=parseInt(amountq);
+ const g= await User.updateOne({name:d.name, "graph.name":arr[month-1]},{"graph.$.camount":s});
+ console.log(g);
+//this.graphc[month-1].amount=this.graphc[month-1].amount + amountq;
+const q = await User.findOne({ name: namec.result });
+
+   // const updatefind= await User.find({`graphc.name`:"nov"})
+    //this.graphc =await User.updateOne({name :d.name,},{$set:{"amountmonth.$":amountq}});
+    console.log(q);
+    //console.log(description);
    
-
-
-    const q = await User.findOne({ name: namec.result });
     console.log(this.graphc);
     // const up =await User.updateOne({name:this.name},{$set :{"graphc.$10":amountq}});
     // console.log(up);
@@ -174,7 +162,9 @@ userschema.methods.enterAmountCredit = async function (
       date: date,
       month: month,
     });
-    //await up.save();
+    var p=parseInt(q.graph[month-1].damount);
+    p+=parseInt(amountq);
+    const gf= await User.updateOne({name:q.name, "graph.name":arr[month-1]},{"graph.$.damount":p});
     await q.save();
     await this.save();
     return "success";
