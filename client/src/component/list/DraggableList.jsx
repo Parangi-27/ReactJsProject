@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import './draggable-list.css'
@@ -6,9 +6,13 @@ import './draggable-list.css'
 import DraggableListItem from './DraggableListItem'
 
 const DraggableList = props => {
-
-    const [data, setdata] = useState(props.data);
-
+//console.log(props.data)
+    const [data, setdata] = useState({
+        g: []
+      });
+     
+ // setdata({g:props.data})
+//console.log(data)
     const [dragStartIndex, setdragStartIndex] = useState(null);
 
     // get index of draged item
@@ -17,7 +21,7 @@ const DraggableList = props => {
     // update list when item dropped
     const onDrop = (dropIndex) => {
         // get draged item
-        const dragItem = data[dragStartIndex]
+        const dragItem = data.g[dragStartIndex]
 
         // delete draged item in list
         let list = [...data]
@@ -38,11 +42,18 @@ const DraggableList = props => {
             ])
         }
     }
-
+    useEffect(() => {
+        const fetchdat= async()=>{
+               //console.log("fecthingdata");
+        setdata({g: props.data})
+        }
+       fetchdat();
+      },[]);
+    
     return (
         <ul className="draggable-list">
             {
-                data.map((item, index) => (
+                data.g.map((item, index) => (
                     <DraggableListItem
                         key={index}
                         index={index}
@@ -60,8 +71,8 @@ const DraggableList = props => {
                 last item dont need onDragStart because it can not be draged
             */}
             <DraggableListItem
-                key={data.length}
-                index={data.length}
+                key={data.g.length}
+                index={data.g.length}
                 draggale={false}
                 onDrop={(index) => onDrop(index)}
             />

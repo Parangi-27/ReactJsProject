@@ -59,7 +59,7 @@ const SignUp = (props) => {
       rotateZ: 0,
     },
     to: { opacity: 1, transform: "translate(0,0)", rotateZ:360 },
-    delay: 3500,
+    delay: 3000,
     config: {
       duration: 1300,
     },

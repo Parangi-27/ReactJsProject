@@ -10,6 +10,7 @@ const Listinfo = () => {
     const [creditpeople, setcredit] = useState({
       g: [],
     });
+    
     const [debitpeople, setdedit] = useState({
         g: [],
       });
@@ -33,7 +34,7 @@ const Listinfo = () => {
       // console.log(s);
       setcredit({ g: s.credit });
       setdedit({ g: s.dedit }); 
-      console.log(creditpeople.g);     
+    //  console.log(creditpeople.g);     
           }
           catch(error)
           {
@@ -49,8 +50,7 @@ const Listinfo = () => {
             // let s = fetchcurruser();
               // console.log(s);
       },[]);
-console.log(listData)
-console.log(creditpeople.g)
+
   return (
     <div>
   <DraggableList
@@ -61,4 +61,5 @@ console.log(creditpeople.g)
   )
 }
 const LessonCard = item => <Card item={item}/>
+
 export default Listinfo

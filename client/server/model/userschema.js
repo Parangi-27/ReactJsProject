@@ -19,6 +19,46 @@ const userschema = new mongoose.Schema({
     required: true,
   },
 
+  graphc:[{
+    
+       jan:{
+        type:Number
+       },
+       feb:{
+        type:Number
+       },
+       mar:{
+        type:Number
+       },
+       april:{
+        type:Number
+       },
+       may:{
+        type:Number
+       },
+       june:{
+        type:Number
+       },
+       july:{
+        type:Number
+       },
+       aug:{
+        type:Number
+       },
+       spet:{
+        type:Number
+       },
+       oct:{
+        type:Number
+       },
+       nov:{
+        type:Number
+      },
+      dec:{
+         type:Number
+        }
+      },
+   ],
   credit: [
     {
       name: {
@@ -38,6 +78,7 @@ const userschema = new mongoose.Schema({
       month: {
         type: Number,
       },
+      
     },
   ],
   debit: [
@@ -109,6 +150,7 @@ userschema.methods.enterAmountCredit = async function (
   //d is for loginuser
   try {
     //result is dropdown element
+
     this.credit = this.credit.concat({
       name: namec.result,
       amount: amountq,
@@ -116,8 +158,14 @@ userschema.methods.enterAmountCredit = async function (
       date: date,
       month: month,
     });
+   /// this.graphc.nov= 0;
+   
+
+
     const q = await User.findOne({ name: namec.result });
-    console.log(q);
+    console.log(this.graphc);
+    // const up =await User.updateOne({name:this.name},{$set :{"graphc.$10":amountq}});
+    // console.log(up);
     //console.log(description);
     q.debit = q.debit.concat({
       name: d.name,
@@ -126,6 +174,7 @@ userschema.methods.enterAmountCredit = async function (
       date: date,
       month: month,
     });
+    //await up.save();
     await q.save();
     await this.save();
     return "success";
