@@ -3,6 +3,8 @@ import Login from './component/Login'
 import Home from './component/Home'
 import SignUp from './component/SignUp';
 import{Route,Routes,Navigate,BrowserRouter} from 'react-router-dom';
+import Listinfo from './component/Listinfo';
+import Form from './component/Form';
 
 function App() {
   
@@ -17,6 +19,8 @@ function App() {
      
         <Route  path="/signup" element={<SignUp/>} />
         <Route  path="/login" element={<Login/>} />
+        <Route  path="/detail" element={<Listinfo/>} />
+        <Route  path="/Creditfrom" element={<Form/>} />
         <Route path="/" exact element={<Navigate replace to="/login"/>}/>
       
     </Routes>

@@ -21,10 +21,21 @@ function Navbar() {
              <i className="fa fa-code"></i>
             </NavLink>
             <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <li className="nav-item">
+                <NavLink
+                  exact
+                  to="/"
+                  activeClassName="active"
+                  className="nav-links"
+                  onClick={click ? handleClick : null}
+                >
+                Home
+                </NavLink>
+              </li>
               <li className="nav-item">
                 <NavLink
                   exact
-                  to="/Credit"
+                  to="/Creditfrom"
                   activeClassName="active"
                   className="nav-links"
                   onClick={click ? handleClick : null}
@@ -35,23 +46,12 @@ function Navbar() {
               <li className="nav-item">
                 <NavLink
                   exact
-                  to="/money"
+                  to="/detail"
                   activeClassName="active"
                   className="nav-links"
                   onClick={click ? handleClick : null}
                 >
                   Money
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  exact
-                  to="/blog"
-                  activeClassName="active"
-                  className="nav-links"
-                  onClick={click ? handleClick : null}
-                >
-                  Other
                 </NavLink>
               </li>
               <li className="nav-item">

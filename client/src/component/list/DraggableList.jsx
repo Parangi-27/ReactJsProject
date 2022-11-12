@@ -43,7 +43,14 @@ const DraggableList = props => {
         }
     }
     useEffect(() => {
-          setdata({g: props.data})
+
+     const time = setInterval(()=>{
+             setdata({g: props.data})
+        }, 1000);
+        return () => {
+            clearInterval(time)
+          };
+       
                //console.log("fecthingdata");
       });
     

@@ -38,9 +38,9 @@ const Home = () => {
 
           <Navbar />
           <Userpro />
-          <Listinfo />
+          {/* <Listinfo /> */}
           {/* <Credit /> */}
-          <Form />
+          {/* <Form /> */}
           <Footer/>
 
         </div>

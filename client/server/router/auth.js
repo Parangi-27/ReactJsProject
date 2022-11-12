@@ -169,6 +169,13 @@ router.post("/login", async (req, res) => {
   // console.log(token);
 });
 
+router.post("/graph",async(req,res)=>{
+  const ri= req.body.r;
+   const y= await User.find({name:ri});
+
+   res.status(201).json(y);
+
+});
 router.get("/data", async (req, res) => {
   const objectdata = await User.find({});
   // console.log(objectdata);

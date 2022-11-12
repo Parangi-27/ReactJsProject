@@ -1,9 +1,11 @@
 import React from 'react'
 import DraggableList from '../list/DraggableList';
 import Card from '../card/Card';
-import { listData } from '../assets/listData'
+import { listData } from '../assets/listData';
+import gif from '../loaderlogo.gif';
 import { useState, useEffect } from "react";
 import { animated, useSpring } from "react-spring";
+import Navbar from '../Navbar';
 import axios from "axios";
 const Listinfo = () => {
     const [loading, setload] = useState(true);
@@ -50,13 +52,24 @@ const Listinfo = () => {
             // let s = fetchcurruser();
               // console.log(s);
       },[]);
-
+      useEffect(() => {
+        setTimeout(() => {
+          setload(false);
+        }, 4000);
+      }, []);
   return (
     <div>
+     {loading ? (
+        <center><img src={gif} alt="load"></img></center>
+      ) : (<>
+    <Navbar/>
+   
   <DraggableList
                 data={creditpeople.g}
                 renderItemContent={(item) => LessonCard(item)}
             />
+    
+            </>)}
     </div>
   )
 }

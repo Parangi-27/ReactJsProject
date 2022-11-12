@@ -9,6 +9,7 @@ import girl from "./khatabook.png";
 import Notification from "../Notification";
 import axios from "axios";
 import Select from "react-select";
+import Navbar from "../Navbar";
 
 const Form = (props) => {
   var x = localStorage.getItem("loginuser");
@@ -18,9 +19,10 @@ const Form = (props) => {
     error1: "",
     message: "",
   });
+  const [loading, setload] = useState(true);
   const [Data, setData] = useState({ amount: "", date: "", description: "" });
   
-  const [loading, setload] = useState(true);
+
   const [post, setPost] = useState({
     g: [],
   });
@@ -96,12 +98,25 @@ const Form = (props) => {
       opacity: 0,
       transform: "translate(-4000px,-1000px)",
     },
-    opacity: 1,
-    transform: "translate(0,0)",
+    to:{opacity: 1,
+    transform: "translate(0,0)"},
+    delay: 3500,
+    config: {
+      duration: 1250,
+    },
   });
+  useEffect(() => {
+    setTimeout(() => {
+      setload(false);
+    }, 4000);
+  }, []);
 
   return (
     <>
+    {loading ? (
+        <center><img src={gif} alt="load"></img></center>
+      ) : (<>
+        <Navbar/>
       <animated.div style={styleprops} className={styles.box}>
             <h1 className={styles.textlogin}>
               {" "}
@@ -172,6 +187,8 @@ const Form = (props) => {
           </animated.form>
         </div>
       </animated.div>
+      </>
+      )}
     </>
   );
 };
