@@ -55,6 +55,8 @@ const Form = (props) => {
       },
       []
     );
+    if(res)
+    window.location.href ="/detail"
   };
   const changevalue = (e) => {
     setvalue(e.target.value);
@@ -68,9 +70,7 @@ const Form = (props) => {
     const fetchdata= async()=>{
       try{
       const resu= await axios.get("http://localhost:8000/data");
-  //    var index= resu.data.find(finduserlog);
-  //  console.log(index);
-  //   await delete resu.data[t];
+
   const people = resu.data.filter((item) => item.name !== x);
       // resu.data.removeByAttr(resu.data, 'name', x);
   //  console.log(filteredPeople);

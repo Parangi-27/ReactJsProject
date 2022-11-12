@@ -36,7 +36,7 @@ const Listinfo = () => {
       // console.log(s);
       setcredit({ g: s.credit });
       setdedit({ g: s.dedit }); 
-    //  console.log(creditpeople.g);     
+    // console.log(creditpeople.g);     
           }
           catch(error)
           {
@@ -63,7 +63,7 @@ const Listinfo = () => {
         <center><img src={gif} alt="load"></img></center>
       ) : (<>
     <Navbar/>
-   
+   <center><h1 style={{margin:'3%'}}>Credit Amount</h1></center>
   <DraggableList
                 data={creditpeople.g}
                 renderItemContent={(item) => LessonCard(item)}
@@ -73,6 +73,6 @@ const Listinfo = () => {
     </div>
   )
 }
-const LessonCard = item => <Card item={item}/>
+const LessonCard = item => <Card color={false} item={item}/>
 
 export default Listinfo

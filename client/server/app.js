@@ -8,14 +8,8 @@ const app=express();
 dotenv.config({path :'./config.env'});
 require('./db/conn')
 app.use(express.urlencoded({ extended :false}));
-//const twilio=require('twilio');
-
-// const accountSid=process.env.TWILIO_ACCOUNT_SID;
-
-// const authToken=process.env.TWILIO_TOKEN;
-// const client =new twilio(accountSid,authToken);
 app.use(express.json())
-//const User=require('./model/userschema');
+
 app.use(cors());
 
 app.use(require('./router/auth'));
@@ -24,11 +18,11 @@ app.use(require('./router/auth'));
 const port =process.env.port;
 
 /// middleware
-const middleware=(req,res,next)=>
-{
-    console.log(`hello my middle ware`);
-    next();
-}
+// const middleware=(req,res,next)=>
+// {
+//     console.log(`hello my middle ware`);
+//     next();
+// }
 
 // app.get('/send-sms',(req,res)=>
 // {
